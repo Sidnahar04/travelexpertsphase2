@@ -8,4 +8,10 @@ Jonny Smith (Student ID: 000780019)
 
 Date Created: Oct 25, 2024
 Course: CPRG-200-A, Rapid App Development
+
+Team Members:
+Taofeek Oduola
+Jenson Bender
+Jonathon Smith
+Siddharth Mahendrabhai Nahar
  -->
