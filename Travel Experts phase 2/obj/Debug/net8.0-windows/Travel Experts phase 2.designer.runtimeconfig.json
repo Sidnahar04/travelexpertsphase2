@@ -1,0 +1,12 @@
+{
+  "runtimeOptions": {
+    "tfm": "net8.0",
+    "additionalProbingPaths": [
+      "C:\\Users\\Siddharth Nahar\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Siddharth Nahar\\.nuget\\packages"
+    ],
+    "configProperties": {
+      "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true
+    }
+  }
+}
