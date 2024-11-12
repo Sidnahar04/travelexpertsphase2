@@ -1,4 +1,5 @@
-using travel_experts_phase_2.Models;
+using travel_experts_phase_2.Controllers;
+using travel_experts_phase_2.ViewModels;
 
 namespace travel_experts_phase_2
 {
@@ -11,20 +12,9 @@ namespace travel_experts_phase_2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            using(TravelExpertsContext db = new TravelExpertsContext())
-            {
-                var packages = db.Packages.Select(
-                    package=> new
-                    {
-                        package.PkgName,
-                        package.PkgStartDate,
-                        package.PkgEndDate,
-                        package.PkgDesc,
-                        package.PkgBasePrice,
-                        package.PkgAgencyCommission
-                    }).ToList();
-                dgvPackages.DataSource = packages;
-            }
+            PackageController packageController = new PackageController();
+            List<PackageViewModel> packages = packageController.GetAllPackages();
+            dgvPackages.DataSource = packages;
         }
     }
 }
