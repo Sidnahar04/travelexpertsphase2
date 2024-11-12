@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Travel Experts phase 2", "Travel Experts phase 2\Travel Experts phase 2.csproj", "{A2F192F7-C33F-4C46-A659-D0877363C345}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "travel experts phase 2", "travel experts phase 2\travel experts phase 2.csproj", "{FBB1652F-1021-44F0-8739-6193A7852F5B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A2F192F7-C33F-4C46-A659-D0877363C345}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A2F192F7-C33F-4C46-A659-D0877363C345}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A2F192F7-C33F-4C46-A659-D0877363C345}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A2F192F7-C33F-4C46-A659-D0877363C345}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBB1652F-1021-44F0-8739-6193A7852F5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBB1652F-1021-44F0-8739-6193A7852F5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBB1652F-1021-44F0-8739-6193A7852F5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBB1652F-1021-44F0-8739-6193A7852F5B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {72E7E0B3-C8C3-456B-9044-976ECDF27A3D}
+		SolutionGuid = {36C270D4-7B05-42CD-8A7C-47CF6B26F5FD}
 	EndGlobalSection
 EndGlobal

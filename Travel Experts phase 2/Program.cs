@@ -1,4 +1,4 @@
-namespace Travel_Experts_phase_2
+namespace travel_experts_phase_2
 {
     internal static class Program
     {
@@ -11,7 +11,7 @@ namespace Travel_Experts_phase_2
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Application.Run(new packagefrm());
         }
     }
 }
