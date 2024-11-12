@@ -2,9 +2,9 @@ using travel_experts_phase_2.Models;
 
 namespace travel_experts_phase_2
 {
-    public partial class Form1 : Form
+    public partial class packagefrm : Form
     {
-        public Form1()
+        public packagefrm()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace travel_experts_phase_2
 {
-    partial class Form1
+    partial class packagefrm
     {
         /// <summary>
         ///  Required designer variable.

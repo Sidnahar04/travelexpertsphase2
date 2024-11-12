@@ -2046,11 +2046,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Siddharth Nahar\\SAIT OOSD\\travel experts phase 2\\travel experts phase 2\\travel experts phase 2.csproj",
+      "projectUniqueName": "C:\\Users\\Siddharth Nahar\\SAIT OOSD\\C#\\travelexpertsphase2\\travel experts phase 2\\travel experts phase 2.csproj",
       "projectName": "travel experts phase 2",
-      "projectPath": "C:\\Users\\Siddharth Nahar\\SAIT OOSD\\travel experts phase 2\\travel experts phase 2\\travel experts phase 2.csproj",
+      "projectPath": "C:\\Users\\Siddharth Nahar\\SAIT OOSD\\C#\\travelexpertsphase2\\travel experts phase 2\\travel experts phase 2.csproj",
       "packagesPath": "C:\\Users\\Siddharth Nahar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Siddharth Nahar\\SAIT OOSD\\travel experts phase 2\\travel experts phase 2\\obj\\",
+      "outputPath": "C:\\Users\\Siddharth Nahar\\SAIT OOSD\\C#\\travelexpertsphase2\\travel experts phase 2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Siddharth Nahar\\AppData\\Roaming\\NuGet\\NuGet.Config",
