@@ -216,3 +216,4 @@ C:\Users\Jonny\source\repos\travelexpertsphase2\Travel Experts phase 2\travel ex
 C:\Users\Jonny\source\repos\travelexpertsphase2\Travel Experts phase 2\travel experts phase 2\obj\Debug\net6.0-windows\travel experts phase 2.pdb
 C:\Users\Jonny\source\repos\travelexpertsphase2\Travel Experts phase 2\travel experts phase 2\obj\Debug\net6.0-windows\travel experts phase 2.genruntimeconfig.cache
 C:\Users\Jonny\source\repos\travelexpertsphase2\Travel Experts phase 2\travel experts phase 2\obj\Debug\net6.0-windows\ref\travel experts phase 2.dll
+C:\Users\Jonny\source\repos\travelexpertsphase2\Travel Experts phase 2\travel experts phase 2\obj\Debug\net6.0-windows\travel_experts_phase_2.AgentsForm.resources
