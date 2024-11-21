@@ -42,13 +42,13 @@
             dgvPackages.Size = new Size(721, 212);
             dgvPackages.TabIndex = 0;
             // 
-            // Form1
+            // packagefrm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(dgvPackages);
-            Name = "Form1";
+            Name = "packagefrm";
             Text = "Form1";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dgvPackages).EndInit();

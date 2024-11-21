@@ -15,7 +15,7 @@ namespace travel_experts_phase_2
 {
     public partial class LoginForm : Form
     {
-        
+
         public LoginForm()
         {
             InitializeComponent();
@@ -23,7 +23,7 @@ namespace travel_experts_phase_2
         LoginForm currentForm;
         public static void login(string email, LoginForm loginForm)
         {
-            
+
 
             //check if email is in admin to validate if present asign role as admin and return, if email is not in admin table then check agent table and if missing show error ogin failure,
             AdminController controller = new AdminController();
@@ -86,6 +86,11 @@ namespace travel_experts_phase_2
         private void LoginForm_Load(object sender, EventArgs e)
         {
             currentForm = this;
+        }
+
+        private void LoginForm_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
