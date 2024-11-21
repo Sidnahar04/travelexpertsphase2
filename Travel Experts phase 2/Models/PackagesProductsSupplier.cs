@@ -10,7 +10,7 @@ namespace travel_experts_phase_2.Models
     [Index("PackageId", Name = "PackagesPackages_Products_Suppliers")]
     [Index("ProductSupplierId", Name = "ProductSupplierId")]
     [Index("ProductSupplierId", Name = "Products_SuppliersPackages_Products_Suppliers")]
-    [Index("PackageId", "ProductSupplierId", Name = "UQ__Packages__29CA8E953D245FA7", IsUnique = true)]
+    [Index("PackageId", "ProductSupplierId", Name = "UQ__Packages__29CA8E951903138D", IsUnique = true)]
     public partial class PackagesProductsSupplier
     {
         [Key]

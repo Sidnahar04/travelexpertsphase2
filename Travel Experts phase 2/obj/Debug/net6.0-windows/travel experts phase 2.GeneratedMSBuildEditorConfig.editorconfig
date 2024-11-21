@@ -14,4 +14,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = travel_experts_phase_2
-build_property.ProjectDir = C:\Users\Siddharth Nahar\SAIT OOSD\C#\travelexpertsphase2\travel experts phase 2\
+build_property.ProjectDir = C:\Users\oduol\Desktop\travelexpertsphase2\travel experts phase 2\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 

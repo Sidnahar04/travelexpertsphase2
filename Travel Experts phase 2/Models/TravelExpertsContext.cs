@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using System.Configuration;
 
 namespace travel_experts_phase_2.Models
 {
@@ -17,6 +16,7 @@ namespace travel_experts_phase_2.Models
         {
         }
 
+        public virtual DbSet<Admin> Admins { get; set; } = null!;
         public virtual DbSet<Affiliation> Affiliations { get; set; } = null!;
         public virtual DbSet<Agency> Agencies { get; set; } = null!;
         public virtual DbSet<Agent> Agents { get; set; } = null!;
@@ -43,7 +43,7 @@ namespace travel_experts_phase_2.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["TravelExpertsConnection"].ConnectionString);
+                optionsBuilder.UseSqlServer("Data Source=localhost\\sqlexpress;Initial Catalog=TravelExperts;Integrated Security=True; TrustServerCertificate=true");
             }
         }
 
@@ -194,7 +194,7 @@ namespace travel_experts_phase_2.Models
             modelBuilder.Entity<PackagesProductsSupplier>(entity =>
             {
                 entity.HasKey(e => e.PackageProductSupplierId)
-                    .HasName("PK__Packages__53E8ED993C80EAD8");
+                    .HasName("PK__Packages__53E8ED99503AC85D");
 
                 entity.HasOne(d => d.Package)
                     .WithMany(p => p.PackagesProductsSuppliers)
