@@ -28,14 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
             label7 = new Label();
-            packageIdTxt = new TextBox();
             packageNameTxt = new TextBox();
             packageBasePriceTxt = new TextBox();
             packageCommisionTxt = new TextBox();
@@ -46,19 +44,10 @@
             cancelBtn = new Button();
             SuspendLayout();
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(39, 55);
-            label1.Name = "label1";
-            label1.Size = new Size(79, 20);
-            label1.TabIndex = 0;
-            label1.Text = "PackageId:";
-            // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(39, 116);
+            label2.Location = new Point(39, 41);
             label2.Name = "label2";
             label2.Size = new Size(52, 20);
             label2.TabIndex = 1;
@@ -67,7 +56,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(39, 172);
+            label3.Location = new Point(39, 103);
             label3.Name = "label3";
             label3.Size = new Size(79, 20);
             label3.TabIndex = 2;
@@ -76,7 +65,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(39, 226);
+            label4.Location = new Point(39, 156);
             label4.Name = "label4";
             label4.Size = new Size(73, 20);
             label4.TabIndex = 3;
@@ -85,7 +74,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(39, 274);
+            label5.Location = new Point(39, 223);
             label5.Name = "label5";
             label5.Size = new Size(88, 20);
             label5.TabIndex = 4;
@@ -109,23 +98,16 @@
             label7.TabIndex = 6;
             label7.Text = "Agency Commission:";
             // 
-            // packageIdTxt
-            // 
-            packageIdTxt.Location = new Point(247, 55);
-            packageIdTxt.Name = "packageIdTxt";
-            packageIdTxt.Size = new Size(173, 27);
-            packageIdTxt.TabIndex = 7;
-            // 
             // packageNameTxt
             // 
-            packageNameTxt.Location = new Point(247, 116);
+            packageNameTxt.Location = new Point(247, 41);
             packageNameTxt.Name = "packageNameTxt";
             packageNameTxt.Size = new Size(173, 27);
             packageNameTxt.TabIndex = 8;
             // 
             // packageBasePriceTxt
             // 
-            packageBasePriceTxt.Location = new Point(247, 361);
+            packageBasePriceTxt.Location = new Point(247, 358);
             packageBasePriceTxt.Name = "packageBasePriceTxt";
             packageBasePriceTxt.Size = new Size(173, 27);
             packageBasePriceTxt.TabIndex = 10;
@@ -139,22 +121,22 @@
             // 
             // PackageStartDateTxt
             // 
-            PackageStartDateTxt.Location = new Point(247, 165);
+            PackageStartDateTxt.Location = new Point(247, 103);
             PackageStartDateTxt.Name = "PackageStartDateTxt";
             PackageStartDateTxt.Size = new Size(173, 27);
             PackageStartDateTxt.TabIndex = 12;
             // 
             // packageDescTxt
             // 
-            packageDescTxt.Location = new Point(247, 274);
+            packageDescTxt.Location = new Point(247, 223);
             packageDescTxt.Name = "packageDescTxt";
-            packageDescTxt.Size = new Size(230, 73);
+            packageDescTxt.Size = new Size(230, 112);
             packageDescTxt.TabIndex = 13;
             packageDescTxt.Text = "";
             // 
             // PackageEndDateTxt
             // 
-            PackageEndDateTxt.Location = new Point(247, 226);
+            PackageEndDateTxt.Location = new Point(247, 156);
             PackageEndDateTxt.Name = "PackageEndDateTxt";
             PackageEndDateTxt.Size = new Size(173, 27);
             PackageEndDateTxt.TabIndex = 14;
@@ -177,6 +159,7 @@
             cancelBtn.TabIndex = 16;
             cancelBtn.Text = "Cancel";
             cancelBtn.UseVisualStyleBackColor = true;
+            cancelBtn.Click += cancelBtn_Click;
             // 
             // addOrUpdatePackageFrm
             // 
@@ -191,14 +174,12 @@
             Controls.Add(packageCommisionTxt);
             Controls.Add(packageBasePriceTxt);
             Controls.Add(packageNameTxt);
-            Controls.Add(packageIdTxt);
             Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(label1);
             Name = "addOrUpdatePackageFrm";
             Text = "addOrUpdatePackageFrm";
             Load += addOrUpdatePackageFrm_Load;
@@ -207,15 +188,12 @@
         }
 
         #endregion
-
-        private Label label1;
         private Label label2;
         private Label label3;
         private Label label4;
         private Label label5;
         private Label label6;
         private Label label7;
-        private TextBox packageIdTxt;
         private TextBox packageNameTxt;
         private TextBox packageBasePriceTxt;
         private TextBox packageCommisionTxt;
