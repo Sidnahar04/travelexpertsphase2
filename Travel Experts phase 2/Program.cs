@@ -14,7 +14,9 @@ namespace travel_experts_phase_2
             Application.SetCompatibleTextRenderingDefault(false);
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new LoginForm());
+            //Application.Run(new LoginForm());
+            Application.Run(new packagefrm());
+
         }
     }
 }
