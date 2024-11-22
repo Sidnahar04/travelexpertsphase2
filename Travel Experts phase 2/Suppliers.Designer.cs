@@ -41,9 +41,9 @@
             // 
             // AddBtn
             // 
-            AddBtn.Location = new Point(90, 142);
+            AddBtn.Location = new Point(27, 146);
             AddBtn.Name = "AddBtn";
-            AddBtn.Size = new Size(75, 23);
+            AddBtn.Size = new Size(204, 23);
             AddBtn.TabIndex = 1;
             AddBtn.Text = "Add Supplier";
             AddBtn.UseVisualStyleBackColor = true;
@@ -51,35 +51,38 @@
             // 
             // UpdateBtn
             // 
-            UpdateBtn.Location = new Point(90, 216);
+            UpdateBtn.Location = new Point(27, 216);
             UpdateBtn.Name = "UpdateBtn";
-            UpdateBtn.Size = new Size(75, 23);
+            UpdateBtn.Size = new Size(204, 23);
             UpdateBtn.TabIndex = 2;
             UpdateBtn.Text = "Update Selected Supplier";
             UpdateBtn.UseVisualStyleBackColor = true;
+            UpdateBtn.Click += UpdateBtn_Click;
             // 
             // DeleteBtn
             // 
-            DeleteBtn.Location = new Point(90, 292);
+            DeleteBtn.Location = new Point(27, 292);
             DeleteBtn.Name = "DeleteBtn";
-            DeleteBtn.Size = new Size(75, 23);
+            DeleteBtn.Size = new Size(204, 23);
             DeleteBtn.TabIndex = 3;
             DeleteBtn.Text = "Delete Selected Supplier";
             DeleteBtn.UseVisualStyleBackColor = true;
+            DeleteBtn.Click += DeleteBtn_Click;
             // 
             // RefreshBtn
             // 
-            RefreshBtn.Location = new Point(90, 367);
+            RefreshBtn.Location = new Point(27, 366);
             RefreshBtn.Name = "RefreshBtn";
-            RefreshBtn.Size = new Size(75, 23);
+            RefreshBtn.Size = new Size(204, 23);
             RefreshBtn.TabIndex = 4;
             RefreshBtn.Text = "Update Changes";
             RefreshBtn.UseVisualStyleBackColor = true;
+            RefreshBtn.Click += RefreshBtn_Click;
             // 
             // SearchBoxLbl
             // 
             SearchBoxLbl.AutoSize = true;
-            SearchBoxLbl.Location = new Point(401, 63);
+            SearchBoxLbl.Location = new Point(331, 74);
             SearchBoxLbl.Name = "SearchBoxLbl";
             SearchBoxLbl.Size = new Size(45, 15);
             SearchBoxLbl.TabIndex = 5;
@@ -87,7 +90,7 @@
             // 
             // SearchBox
             // 
-            SearchBox.Location = new Point(487, 60);
+            SearchBox.Location = new Point(417, 71);
             SearchBox.Name = "SearchBox";
             SearchBox.Size = new Size(279, 23);
             SearchBox.TabIndex = 6;

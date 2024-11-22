@@ -7,52 +7,52 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using travel_experts_phase_2.Controllers;
 using travel_experts_phase_2.Models;
+using travel_experts_phase_2.ViewModels;
 
 namespace travel_experts_phase_2
 {
     public partial class Suppliers : Form
     {
+        SupplierController supplierController = new SupplierController();
+
         public Suppliers()
         {
             InitializeComponent();
         }
         private void Suppliers_Load(object sender, EventArgs e)
         {
-            using (TravelExpertsContext db = new TravelExpertsContext())
-            {
-                //get suppliers from db and then display them
-                //List<Supplier>
-                var suppliers = db.Suppliers.Select(
-                  s => new
-                  {
-                      s.SupplierId,
-                      s.SupName
-
-                  }).ToList();
-                SupplierView.DataSource = suppliers;
-
-            }
-        }
-
-        private void SearchBox_TextChanged(object sender, EventArgs e)
-        {
-            string keyword = SearchBox.Text;
-
-        }
-
-        private void AddBtn_Click(object sender, EventArgs e)
-        {
-            /*SearchBox_TextChanged();
-            var suppliers = db.Suppliers.Select(
-                  s => new {
-                      s.SupplierId,
-                      s.SupName
-
-                  }).ToList();
-            SupplierView.DataSource = suppliers;*/
+            List<SuppliersViewModel> supplier = supplierController.GetAllSuppliers();
+            SupplierView.DataSource = supplier;
         }
 
        
+
+        private void AddBtn_Click(object sender, EventArgs e)
+        {
+
+
+
+        }
+
+        private void UpdateBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DeleteBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RefreshBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void SearchBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
