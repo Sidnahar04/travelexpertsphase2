@@ -44,6 +44,16 @@
             emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             phoneNumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             roleDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            txtFirstName = new TextBox();
+            lblFirstName = new Label();
+            txtLastName = new TextBox();
+            lblLastName = new Label();
+            txtInitial = new TextBox();
+            lblInitial = new Label();
+            lblEmail = new Label();
+            txtEmail = new TextBox();
+            txtPhone = new TextBox();
+            lblPhone = new Label();
             ((System.ComponentModel.ISupportInitialize)gdvAgentsTable).BeginInit();
             ((System.ComponentModel.ISupportInitialize)agentBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)agencyBindingSource).BeginInit();
@@ -57,11 +67,11 @@
             gdvAgentsTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             gdvAgentsTable.Columns.AddRange(new DataGridViewColumn[] { firstNameDataGridViewTextBoxColumn, middleInitialDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, phoneNumberDataGridViewTextBoxColumn, roleDataGridViewTextBoxColumn });
             gdvAgentsTable.DataSource = agentViewModelBindingSource;
-            gdvAgentsTable.Location = new Point(23, 54);
+            gdvAgentsTable.Location = new Point(23, 56);
             gdvAgentsTable.Name = "gdvAgentsTable";
             gdvAgentsTable.RowHeadersWidth = 51;
             gdvAgentsTable.RowTemplate.Height = 29;
-            gdvAgentsTable.Size = new Size(742, 194);
+            gdvAgentsTable.Size = new Size(752, 194);
             gdvAgentsTable.TabIndex = 0;
             // 
             // agentBindingSource
@@ -168,11 +178,101 @@
             roleDataGridViewTextBoxColumn.Name = "roleDataGridViewTextBoxColumn";
             roleDataGridViewTextBoxColumn.Width = 125;
             // 
+            // txtFirstName
+            // 
+            txtFirstName.Location = new Point(301, 297);
+            txtFirstName.Name = "txtFirstName";
+            txtFirstName.Size = new Size(125, 27);
+            txtFirstName.TabIndex = 6;
+            // 
+            // lblFirstName
+            // 
+            lblFirstName.AutoSize = true;
+            lblFirstName.Location = new Point(301, 274);
+            lblFirstName.Name = "lblFirstName";
+            lblFirstName.Size = new Size(80, 20);
+            lblFirstName.TabIndex = 7;
+            lblFirstName.Text = "First Name";
+            // 
+            // txtLastName
+            // 
+            txtLastName.Location = new Point(570, 297);
+            txtLastName.Name = "txtLastName";
+            txtLastName.Size = new Size(125, 27);
+            txtLastName.TabIndex = 8;
+            // 
+            // lblLastName
+            // 
+            lblLastName.AutoSize = true;
+            lblLastName.Location = new Point(570, 274);
+            lblLastName.Name = "lblLastName";
+            lblLastName.Size = new Size(79, 20);
+            lblLastName.TabIndex = 9;
+            lblLastName.Text = "Last Name";
+            // 
+            // txtInitial
+            // 
+            txtInitial.Location = new Point(444, 297);
+            txtInitial.Name = "txtInitial";
+            txtInitial.Size = new Size(61, 27);
+            txtInitial.TabIndex = 10;
+            // 
+            // lblInitial
+            // 
+            lblInitial.AutoSize = true;
+            lblInitial.Location = new Point(444, 274);
+            lblInitial.Name = "lblInitial";
+            lblInitial.Size = new Size(116, 20);
+            lblInitial.TabIndex = 11;
+            lblInitial.Text = "Initial (optional)";
+            // 
+            // lblEmail
+            // 
+            lblEmail.AutoSize = true;
+            lblEmail.Location = new Point(301, 332);
+            lblEmail.Name = "lblEmail";
+            lblEmail.Size = new Size(46, 20);
+            lblEmail.TabIndex = 12;
+            lblEmail.Text = "Email";
+            // 
+            // txtEmail
+            // 
+            txtEmail.Location = new Point(301, 355);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(204, 27);
+            txtEmail.TabIndex = 13;
+            // 
+            // txtPhone
+            // 
+            txtPhone.Location = new Point(570, 355);
+            txtPhone.Name = "txtPhone";
+            txtPhone.Size = new Size(125, 27);
+            txtPhone.TabIndex = 14;
+            // 
+            // lblPhone
+            // 
+            lblPhone.AutoSize = true;
+            lblPhone.Location = new Point(570, 332);
+            lblPhone.Name = "lblPhone";
+            lblPhone.Size = new Size(108, 20);
+            lblPhone.TabIndex = 15;
+            lblPhone.Text = "Phone Number";
+            // 
             // AgentsForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lblPhone);
+            Controls.Add(txtPhone);
+            Controls.Add(txtEmail);
+            Controls.Add(lblEmail);
+            Controls.Add(lblInitial);
+            Controls.Add(txtInitial);
+            Controls.Add(lblLastName);
+            Controls.Add(txtLastName);
+            Controls.Add(lblFirstName);
+            Controls.Add(txtFirstName);
             Controls.Add(lblAgentsTable);
             Controls.Add(btnDeleteAgent);
             Controls.Add(btnUpdateAgent);
@@ -186,6 +286,7 @@
             ((System.ComponentModel.ISupportInitialize)agentViewModelBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)agentControllerBindingSource).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -205,5 +306,15 @@
         private DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn phoneNumberDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn roleDataGridViewTextBoxColumn;
+        private TextBox txtFirstName;
+        private Label lblFirstName;
+        private TextBox txtLastName;
+        private Label lblLastName;
+        private TextBox txtInitial;
+        private Label lblInitial;
+        private Label lblEmail;
+        private TextBox txtEmail;
+        private TextBox txtPhone;
+        private Label lblPhone;
     }
 }
