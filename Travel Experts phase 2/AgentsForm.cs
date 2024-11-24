@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.EntityFrameworkCore.Migrations.Operations;
 using travel_experts_phase_2.Models;
 
 namespace travel_experts_phase_2
@@ -29,6 +30,12 @@ namespace travel_experts_phase_2
                 AgtBusPhone = txtPhone.Text,
                 AgtPosition = txtRoles.Text
             };
+            Agent agent = newAgent;
+            using (var context = new TravelExpertsContext())
+            {
+                context.Agents.Add(agent);
+                context.SaveChanges();
+            }
         }
 
         private void btnUpdateAgent_Click(object sender, EventArgs e)
