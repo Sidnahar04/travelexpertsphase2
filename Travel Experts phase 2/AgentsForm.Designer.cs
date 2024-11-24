@@ -30,20 +30,20 @@
         {
             components = new System.ComponentModel.Container();
             gdvAgentsTable = new DataGridView();
-            agentBindingSource = new BindingSource(components);
-            btnAddAgent = new Button();
-            btnUpdateAgent = new Button();
-            btnDeleteAgent = new Button();
-            agencyBindingSource = new BindingSource(components);
-            agentViewModelBindingSource = new BindingSource(components);
-            agentControllerBindingSource = new BindingSource(components);
-            lblAgentsTable = new Label();
             firstNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             middleInitialDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             lastNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             phoneNumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             roleDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            agentViewModelBindingSource = new BindingSource(components);
+            agentBindingSource = new BindingSource(components);
+            btnAddAgent = new Button();
+            btnUpdateAgent = new Button();
+            btnDeleteAgent = new Button();
+            agencyBindingSource = new BindingSource(components);
+            agentControllerBindingSource = new BindingSource(components);
+            lblAgentsTable = new Label();
             txtFirstName = new TextBox();
             lblFirstName = new Label();
             txtLastName = new TextBox();
@@ -54,10 +54,12 @@
             txtEmail = new TextBox();
             txtPhone = new TextBox();
             lblPhone = new Label();
+            txtRoles = new TextBox();
+            lblRoles = new Label();
             ((System.ComponentModel.ISupportInitialize)gdvAgentsTable).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)agentViewModelBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)agentBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)agencyBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)agentViewModelBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)agentControllerBindingSource).BeginInit();
             SuspendLayout();
             // 
@@ -71,64 +73,8 @@
             gdvAgentsTable.Name = "gdvAgentsTable";
             gdvAgentsTable.RowHeadersWidth = 51;
             gdvAgentsTable.RowTemplate.Height = 29;
-            gdvAgentsTable.Size = new Size(752, 194);
+            gdvAgentsTable.Size = new Size(804, 194);
             gdvAgentsTable.TabIndex = 0;
-            // 
-            // agentBindingSource
-            // 
-            agentBindingSource.DataSource = typeof(Models.Agent);
-            // 
-            // btnAddAgent
-            // 
-            btnAddAgent.BackColor = SystemColors.ActiveCaption;
-            btnAddAgent.Location = new Point(23, 265);
-            btnAddAgent.Name = "btnAddAgent";
-            btnAddAgent.Size = new Size(148, 39);
-            btnAddAgent.TabIndex = 2;
-            btnAddAgent.Text = "Add a New Agent";
-            btnAddAgent.UseVisualStyleBackColor = false;
-            // 
-            // btnUpdateAgent
-            // 
-            btnUpdateAgent.BackColor = SystemColors.ActiveCaption;
-            btnUpdateAgent.Location = new Point(23, 321);
-            btnUpdateAgent.Name = "btnUpdateAgent";
-            btnUpdateAgent.Size = new Size(192, 42);
-            btnUpdateAgent.TabIndex = 3;
-            btnUpdateAgent.Text = "Update Agent Information";
-            btnUpdateAgent.UseVisualStyleBackColor = false;
-            // 
-            // btnDeleteAgent
-            // 
-            btnDeleteAgent.BackColor = SystemColors.ActiveCaption;
-            btnDeleteAgent.Location = new Point(23, 377);
-            btnDeleteAgent.Name = "btnDeleteAgent";
-            btnDeleteAgent.Size = new Size(192, 38);
-            btnDeleteAgent.TabIndex = 4;
-            btnDeleteAgent.Text = "Delete Agent Information";
-            btnDeleteAgent.UseVisualStyleBackColor = false;
-            // 
-            // agencyBindingSource
-            // 
-            agencyBindingSource.DataSource = typeof(Models.Agency);
-            // 
-            // agentViewModelBindingSource
-            // 
-            agentViewModelBindingSource.DataSource = typeof(ViewModels.AgentViewModel);
-            // 
-            // agentControllerBindingSource
-            // 
-            agentControllerBindingSource.DataSource = typeof(Controllers.AgentController);
-            // 
-            // lblAgentsTable
-            // 
-            lblAgentsTable.BorderStyle = BorderStyle.FixedSingle;
-            lblAgentsTable.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblAgentsTable.Location = new Point(23, 9);
-            lblAgentsTable.Name = "lblAgentsTable";
-            lblAgentsTable.Size = new Size(192, 35);
-            lblAgentsTable.TabIndex = 5;
-            lblAgentsTable.Text = "All Current Agents";
             // 
             // firstNameDataGridViewTextBoxColumn
             // 
@@ -177,6 +123,65 @@
             roleDataGridViewTextBoxColumn.MinimumWidth = 6;
             roleDataGridViewTextBoxColumn.Name = "roleDataGridViewTextBoxColumn";
             roleDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // agentViewModelBindingSource
+            // 
+            agentViewModelBindingSource.DataSource = typeof(ViewModels.AgentViewModel);
+            // 
+            // agentBindingSource
+            // 
+            agentBindingSource.DataSource = typeof(Models.Agent);
+            // 
+            // btnAddAgent
+            // 
+            btnAddAgent.BackColor = SystemColors.ActiveCaption;
+            btnAddAgent.Location = new Point(23, 285);
+            btnAddAgent.Name = "btnAddAgent";
+            btnAddAgent.Size = new Size(148, 39);
+            btnAddAgent.TabIndex = 2;
+            btnAddAgent.Text = "Add a New Agent";
+            btnAddAgent.UseVisualStyleBackColor = false;
+            btnAddAgent.Click += btnAddAgent_Click;
+            // 
+            // btnUpdateAgent
+            // 
+            btnUpdateAgent.BackColor = SystemColors.ActiveCaption;
+            btnUpdateAgent.Location = new Point(23, 347);
+            btnUpdateAgent.Name = "btnUpdateAgent";
+            btnUpdateAgent.Size = new Size(192, 42);
+            btnUpdateAgent.TabIndex = 3;
+            btnUpdateAgent.Text = "Update Agent Information";
+            btnUpdateAgent.UseVisualStyleBackColor = false;
+            btnUpdateAgent.Click += btnUpdateAgent_Click;
+            // 
+            // btnDeleteAgent
+            // 
+            btnDeleteAgent.BackColor = SystemColors.ActiveCaption;
+            btnDeleteAgent.Location = new Point(23, 411);
+            btnDeleteAgent.Name = "btnDeleteAgent";
+            btnDeleteAgent.Size = new Size(192, 38);
+            btnDeleteAgent.TabIndex = 4;
+            btnDeleteAgent.Text = "Delete Agent Information";
+            btnDeleteAgent.UseVisualStyleBackColor = false;
+            btnDeleteAgent.Click += btnDeleteAgent_Click;
+            // 
+            // agencyBindingSource
+            // 
+            agencyBindingSource.DataSource = typeof(Models.Agency);
+            // 
+            // agentControllerBindingSource
+            // 
+            agentControllerBindingSource.DataSource = typeof(Controllers.AgentController);
+            // 
+            // lblAgentsTable
+            // 
+            lblAgentsTable.BorderStyle = BorderStyle.FixedSingle;
+            lblAgentsTable.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblAgentsTable.Location = new Point(23, 9);
+            lblAgentsTable.Name = "lblAgentsTable";
+            lblAgentsTable.Size = new Size(192, 35);
+            lblAgentsTable.TabIndex = 5;
+            lblAgentsTable.Text = "All Current Agents";
             // 
             // txtFirstName
             // 
@@ -258,11 +263,29 @@
             lblPhone.TabIndex = 15;
             lblPhone.Text = "Phone Number";
             // 
+            // txtRoles
+            // 
+            txtRoles.Location = new Point(301, 422);
+            txtRoles.Name = "txtRoles";
+            txtRoles.Size = new Size(125, 27);
+            txtRoles.TabIndex = 16;
+            // 
+            // lblRoles
+            // 
+            lblRoles.AutoSize = true;
+            lblRoles.Location = new Point(301, 399);
+            lblRoles.Name = "lblRoles";
+            lblRoles.Size = new Size(39, 20);
+            lblRoles.TabIndex = 17;
+            lblRoles.Text = "Role";
+            // 
             // AgentsForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(866, 501);
+            Controls.Add(lblRoles);
+            Controls.Add(txtRoles);
             Controls.Add(lblPhone);
             Controls.Add(txtPhone);
             Controls.Add(txtEmail);
@@ -281,9 +304,9 @@
             Name = "AgentsForm";
             Text = "Agents";
             ((System.ComponentModel.ISupportInitialize)gdvAgentsTable).EndInit();
+            ((System.ComponentModel.ISupportInitialize)agentViewModelBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)agentBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)agencyBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)agentViewModelBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)agentControllerBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -316,5 +339,7 @@
         private TextBox txtEmail;
         private TextBox txtPhone;
         private Label lblPhone;
+        private TextBox txtRoles;
+        private Label lblRoles;
     }
 }
