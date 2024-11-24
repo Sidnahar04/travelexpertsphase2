@@ -160,3 +160,6 @@ C:\Users\oduol\Desktop\travelexpertsphase2\travel experts phase 2\obj\Debug\net6
 C:\Users\oduol\Desktop\travelexpertsphase2\travel experts phase 2\obj\Debug\net6.0-windows\ref\travel experts phase 2.dll
 C:\Users\oduol\Desktop\travelexpertsphase2\travel experts phase 2\obj\Debug\net6.0-windows\travel_experts_phase_2.LoginForm.resources
 C:\Users\oduol\Desktop\travelexpertsphase2\travel experts phase 2\obj\Debug\net6.0-windows\travel_experts_phase_2.HomeForm.resources
+C:\Users\oduol\Desktop\travelexpertsphase2\travel experts phase 2\obj\Debug\net6.0-windows\travel_experts_phase_2.addOrUpdatePackageFrm.resources
+C:\Users\oduol\Desktop\travelexpertsphase2\travel experts phase 2\obj\Debug\net6.0-windows\travel_experts_phase_2.ProductDetailForm.resources
+C:\Users\oduol\Desktop\travelexpertsphase2\travel experts phase 2\obj\Debug\net6.0-windows\travel_experts_phase_2.ProductsForm.resources
