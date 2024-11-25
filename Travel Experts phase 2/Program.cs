@@ -16,8 +16,7 @@ namespace travel_experts_phase_2
             ApplicationConfiguration.Initialize();
             //Application.Run(new LoginForm());
 
-            Application.Run(new packagefrm());
-
+            Application.Run(new Suppliers());
 
         }
     }

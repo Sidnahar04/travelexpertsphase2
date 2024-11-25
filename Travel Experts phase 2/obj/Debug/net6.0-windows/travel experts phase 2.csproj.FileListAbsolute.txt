@@ -217,3 +217,4 @@ C:\Users\jenbe\Source\Repos\travelexpertsphase2\travel experts phase 2\obj\Debug
 C:\Users\jenbe\Source\Repos\travelexpertsphase2\travel experts phase 2\obj\Debug\net6.0-windows\travel experts phase 2.genruntimeconfig.cache
 C:\Users\jenbe\Source\Repos\travelexpertsphase2\travel experts phase 2\obj\Debug\net6.0-windows\ref\travel experts phase 2.dll
 C:\Users\jenbe\Source\Repos\travelexpertsphase2\travel experts phase 2\obj\Debug\net6.0-windows\travel_experts_phase_2.Suppliers.resources
+C:\Users\jenbe\Source\Repos\travelexpertsphase2\travel experts phase 2\obj\Debug\net6.0-windows\travel_experts_phase_2.addOrUpdatePackageFrm.resources
