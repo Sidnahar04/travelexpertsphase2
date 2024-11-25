@@ -56,6 +56,8 @@
             lblPhone = new Label();
             txtRoles = new TextBox();
             lblRoles = new Label();
+            cmbAgentId = new ComboBox();
+            lblAgentId = new Label();
             ((System.ComponentModel.ISupportInitialize)gdvAgentsTable).BeginInit();
             ((System.ComponentModel.ISupportInitialize)agentViewModelBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)agentBindingSource).BeginInit();
@@ -185,7 +187,7 @@
             // 
             // txtFirstName
             // 
-            txtFirstName.Location = new Point(301, 297);
+            txtFirstName.Location = new Point(422, 297);
             txtFirstName.Name = "txtFirstName";
             txtFirstName.Size = new Size(125, 27);
             txtFirstName.TabIndex = 6;
@@ -193,7 +195,7 @@
             // lblFirstName
             // 
             lblFirstName.AutoSize = true;
-            lblFirstName.Location = new Point(301, 274);
+            lblFirstName.Location = new Point(422, 274);
             lblFirstName.Name = "lblFirstName";
             lblFirstName.Size = new Size(80, 20);
             lblFirstName.TabIndex = 7;
@@ -217,15 +219,15 @@
             // 
             // txtInitial
             // 
-            txtInitial.Location = new Point(444, 297);
+            txtInitial.Location = new Point(356, 355);
             txtInitial.Name = "txtInitial";
-            txtInitial.Size = new Size(61, 27);
+            txtInitial.Size = new Size(70, 27);
             txtInitial.TabIndex = 10;
             // 
             // lblInitial
             // 
             lblInitial.AutoSize = true;
-            lblInitial.Location = new Point(444, 274);
+            lblInitial.Location = new Point(352, 332);
             lblInitial.Name = "lblInitial";
             lblInitial.Size = new Size(116, 20);
             lblInitial.TabIndex = 11;
@@ -234,7 +236,7 @@
             // lblEmail
             // 
             lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(301, 332);
+            lblEmail.Location = new Point(491, 332);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(46, 20);
             lblEmail.TabIndex = 12;
@@ -242,14 +244,14 @@
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(301, 355);
+            txtEmail.Location = new Point(491, 355);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(204, 27);
             txtEmail.TabIndex = 13;
             // 
             // txtPhone
             // 
-            txtPhone.Location = new Point(570, 355);
+            txtPhone.Location = new Point(356, 422);
             txtPhone.Name = "txtPhone";
             txtPhone.Size = new Size(125, 27);
             txtPhone.TabIndex = 14;
@@ -257,7 +259,7 @@
             // lblPhone
             // 
             lblPhone.AutoSize = true;
-            lblPhone.Location = new Point(570, 332);
+            lblPhone.Location = new Point(352, 399);
             lblPhone.Name = "lblPhone";
             lblPhone.Size = new Size(108, 20);
             lblPhone.TabIndex = 15;
@@ -265,7 +267,7 @@
             // 
             // txtRoles
             // 
-            txtRoles.Location = new Point(301, 422);
+            txtRoles.Location = new Point(570, 422);
             txtRoles.Name = "txtRoles";
             txtRoles.Size = new Size(125, 27);
             txtRoles.TabIndex = 16;
@@ -273,17 +275,36 @@
             // lblRoles
             // 
             lblRoles.AutoSize = true;
-            lblRoles.Location = new Point(301, 399);
+            lblRoles.Location = new Point(570, 399);
             lblRoles.Name = "lblRoles";
             lblRoles.Size = new Size(39, 20);
             lblRoles.TabIndex = 17;
             lblRoles.Text = "Role";
+            // 
+            // cmbAgentId
+            // 
+            cmbAgentId.FormattingEnabled = true;
+            cmbAgentId.Location = new Point(231, 297);
+            cmbAgentId.Name = "cmbAgentId";
+            cmbAgentId.Size = new Size(76, 28);
+            cmbAgentId.TabIndex = 18;
+            // 
+            // lblAgentId
+            // 
+            lblAgentId.AutoSize = true;
+            lblAgentId.Location = new Point(231, 274);
+            lblAgentId.Name = "lblAgentId";
+            lblAgentId.Size = new Size(76, 20);
+            lblAgentId.TabIndex = 19;
+            lblAgentId.Text = "Account #";
             // 
             // AgentsForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(866, 501);
+            Controls.Add(lblAgentId);
+            Controls.Add(cmbAgentId);
             Controls.Add(lblRoles);
             Controls.Add(txtRoles);
             Controls.Add(lblPhone);
@@ -341,5 +362,7 @@
         private Label lblPhone;
         private TextBox txtRoles;
         private Label lblRoles;
+        private ComboBox cmbAgentId;
+        private Label lblAgentId;
     }
 }

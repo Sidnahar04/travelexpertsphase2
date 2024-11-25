@@ -19,10 +19,20 @@ namespace travel_experts_phase_2
             InitializeComponent();
         }
 
-            //using textbox info to create new agent 
+        //populating combobox
+        private void PopulateComboBox()
+        {
+            foreach (var AgentId in Agents)
+            {
+                cmbAgentId.Items.Add(AgentId);
+            }
+        }
+
+        //using textbox info to create new agent 
         private void btnAddAgent_Click(object sender, EventArgs e)
         {
-            Agent newAgent = new Agent {
+            Agent newAgent = new Agent
+            {
                 AgtFirstName = txtFirstName.Text,
                 AgtMiddleInitial = txtInitial.Text,
                 AgtLastName = txtLastName.Text,
@@ -40,12 +50,29 @@ namespace travel_experts_phase_2
 
         private void btnUpdateAgent_Click(object sender, EventArgs e)
         {
+            using (var context = new TravelExpertsContext())
+            {
+                var agent = context.Agents.FirstOrDefault();
+                if (agent != null)
+                {
+                    agent.AgtFirstName = txtFirstName.Text;
+                    agent.AgtMiddleInitial = txtInitial.Text;
+                    agent.AgtLastName = txtLastName.Text;
+                    agent.AgtBusPhone = txtPhone.Text;
+                    agent.AgtEmail = txtEmail.Text;
+                    agent.AgtPosition = txtRoles.Text;
+                }
+            }
 
+            private void btnDeleteAgent_Click(object sender, EventArgs e)
+            {
+                using (var context = new TravelExpertsContext())
+                {
+                    var agent = context.Agents.FirstOrDefault();
+                    if (agent != null)
+                    {
+                        context.Agents.Remove(agent);
+                    }
+                }
+            }
         }
-
-        private void btnDeleteAgent_Click(object sender, EventArgs e)
-        {
-
-        }
-    }
-}
