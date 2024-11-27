@@ -22,7 +22,7 @@ namespace travel_experts_phase_2
         //populating combobox
         private void PopulateComboBox()
         {
-            foreach (var AgentId in Agents)
+            foreach (var AgentId in Agent)
             {
                 cmbAgentId.Items.Add(AgentId);
             }
@@ -48,6 +48,7 @@ namespace travel_experts_phase_2
             }
         }
 
+        //using textbox data to update agent info
         private void btnUpdateAgent_Click(object sender, EventArgs e)
         {
             using (var context = new TravelExpertsContext())
@@ -64,15 +65,19 @@ namespace travel_experts_phase_2
                 }
             }
 
-            private void btnDeleteAgent_Click(object sender, EventArgs e)
+        }
+
+        //using checkbox info for agent id to delete agent
+        private void btnDeleteAgent_Click(object sender, EventArgs e)
+        {
+            using (var context = new TravelExpertsContext())
             {
-                using (var context = new TravelExpertsContext())
+                var agent = context.Agents.FirstOrDefault();
+                if (agent != null)
                 {
-                    var agent = context.Agents.FirstOrDefault();
-                    if (agent != null)
-                    {
-                        context.Agents.Remove(agent);
-                    }
+                    context.Agents.Remove(agent);
                 }
             }
         }
+    }
+}
