@@ -50,6 +50,7 @@
             dgvPackages.TabIndex = 0;
             dgvPackages.CellContentClick += dgvPackages_CellContentClick;
             // 
+
             // addBtn
             // 
             addBtn.Location = new Point(35, 324);
@@ -118,6 +119,7 @@
             searchBox.TabIndex = 7;
             searchBox.TextChanged += searchBox_TextChanged;
             // 
+
             // packagefrm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -132,7 +134,9 @@
             Controls.Add(addBtn);
             Controls.Add(dgvPackages);
             Name = "packagefrm";
+
             Text = "Package";
+
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dgvPackages).EndInit();
             ResumeLayout(false);
