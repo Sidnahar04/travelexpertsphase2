@@ -8,7 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.EntityFrameworkCore.Migrations.Operations;
+using travel_experts_phase_2.Controllers;
 using travel_experts_phase_2.Models;
+using travel_experts_phase_2.ViewModels;
 
 namespace travel_experts_phase_2
 {
@@ -22,10 +24,13 @@ namespace travel_experts_phase_2
         //populating combobox
         private void PopulateComboBox()
         {
-            foreach (var AgentId in Agent)
+            AgentController agentController = new AgentController();
+            List<AgentViewModel> agents = agentController.GetAllAgents();
+            foreach (var AgentId in agents)
             {
-                cmbAgentId.Items.Add(AgentId);
+                cmbAgentId.Items.Add(AgentId.FirstName);
             }
+            gdvAgentsTable.DataSource = agents;
         }
 
         //using textbox info to create new agent 
@@ -46,6 +51,7 @@ namespace travel_experts_phase_2
                 context.Agents.Add(agent);
                 context.SaveChanges();
             }
+            PopulateComboBox();
         }
 
         //using textbox data to update agent info
@@ -64,7 +70,7 @@ namespace travel_experts_phase_2
                     agent.AgtPosition = txtRoles.Text;
                 }
             }
-
+            PopulateComboBox();
         }
 
         //using checkbox info for agent id to delete agent
@@ -78,6 +84,12 @@ namespace travel_experts_phase_2
                     context.Agents.Remove(agent);
                 }
             }
+            PopulateComboBox();
+        }
+
+        private void AgentsForm_Load(object sender, EventArgs e)
+        {
+            PopulateComboBox();
         }
     }
 }

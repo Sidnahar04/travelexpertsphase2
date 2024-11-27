@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("travel experts phase 2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f860e0fdab7569087bf0d76c3a26cd2bf9e2fab9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a17c9a918e40e8df49df78b71edcd21fdf4a4fb9")]
 [assembly: System.Reflection.AssemblyProductAttribute("travel experts phase 2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("travel experts phase 2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -324,6 +324,7 @@
             Controls.Add(gdvAgentsTable);
             Name = "AgentsForm";
             Text = "Agents";
+            Load += AgentsForm_Load;
             ((System.ComponentModel.ISupportInitialize)gdvAgentsTable).EndInit();
             ((System.ComponentModel.ISupportInitialize)agentViewModelBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)agentBindingSource).EndInit();
