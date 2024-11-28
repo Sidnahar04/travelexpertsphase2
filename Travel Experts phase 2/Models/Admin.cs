@@ -9,6 +9,11 @@ namespace travel_experts_phase_2.Models
     [Table("Admin")]
     public partial class Admin
     {
+        public Admin()
+        {
+            Users = new HashSet<User>();
+        }
+
         [Key]
         [Column("AdminID")]
         public int AdminId { get; set; }
@@ -22,5 +27,8 @@ namespace travel_experts_phase_2.Models
         public string? PhoneNumber { get; set; }
         [StringLength(50)]
         public string Role { get; set; } = null!;
+
+        [InverseProperty("Admin")]
+        public virtual ICollection<User> Users { get; set; }
     }
 }

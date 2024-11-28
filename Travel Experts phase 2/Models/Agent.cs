@@ -11,6 +11,7 @@ namespace travel_experts_phase_2.Models
         public Agent()
         {
             Customers = new HashSet<Customer>();
+            Users = new HashSet<User>();
         }
 
         [Key]
@@ -34,5 +35,7 @@ namespace travel_experts_phase_2.Models
         public virtual Agency? Agency { get; set; }
         [InverseProperty("Agent")]
         public virtual ICollection<Customer> Customers { get; set; }
+        [InverseProperty("Agent")]
+        public virtual ICollection<User> Users { get; set; }
     }
 }
