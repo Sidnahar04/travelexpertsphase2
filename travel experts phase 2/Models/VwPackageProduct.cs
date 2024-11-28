@@ -6,16 +6,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace travel_experts_phase_2.Models
 {
-    public partial class Package
+    [Keyless]
+    public partial class VwPackageProduct
     {
-        public Package()
-        {
-            Bookings = new HashSet<Booking>();
-            PackagesProductsSuppliers = new HashSet<PackagesProductsSupplier>();
-            ProductsPackages = new HashSet<ProductsPackage>();
-        }
-
-        [Key]
         public int PackageId { get; set; }
         [StringLength(50)]
         public string PkgName { get; set; } = null!;
@@ -29,12 +22,10 @@ namespace travel_experts_phase_2.Models
         public decimal PkgBasePrice { get; set; }
         [Column(TypeName = "money")]
         public decimal? PkgAgencyCommission { get; set; }
-
-        [InverseProperty("Package")]
-        public virtual ICollection<Booking> Bookings { get; set; }
-        [InverseProperty("Package")]
-        public virtual ICollection<PackagesProductsSupplier> PackagesProductsSuppliers { get; set; }
-        [InverseProperty("Package")]
-        public virtual ICollection<ProductsPackage> ProductsPackages { get; set; }
+        [StringLength(50)]
+        public string? ProdName { get; set; }
+        [Column("ProductPackageID")]
+        public int? ProductPackageId { get; set; }
+        public int? ProductId { get; set; }
     }
 }

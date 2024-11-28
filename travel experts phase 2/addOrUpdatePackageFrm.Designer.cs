@@ -42,12 +42,14 @@
             PackageEndDateTxt = new DateTimePicker();
             okBtn = new Button();
             cancelBtn = new Button();
+            label1 = new Label();
+            productsCombo = new ComboBox();
             SuspendLayout();
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(39, 41);
+            label2.Location = new Point(39, 62);
             label2.Name = "label2";
             label2.Size = new Size(52, 20);
             label2.TabIndex = 1;
@@ -74,7 +76,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(39, 223);
+            label5.Location = new Point(39, 213);
             label5.Name = "label5";
             label5.Size = new Size(88, 20);
             label5.TabIndex = 4;
@@ -83,7 +85,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(39, 361);
+            label6.Location = new Point(39, 335);
             label6.Name = "label6";
             label6.Size = new Size(79, 20);
             label6.TabIndex = 5;
@@ -92,7 +94,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(39, 404);
+            label7.Location = new Point(39, 378);
             label7.Name = "label7";
             label7.Size = new Size(146, 20);
             label7.TabIndex = 6;
@@ -100,21 +102,21 @@
             // 
             // packageNameTxt
             // 
-            packageNameTxt.Location = new Point(247, 41);
+            packageNameTxt.Location = new Point(247, 59);
             packageNameTxt.Name = "packageNameTxt";
             packageNameTxt.Size = new Size(173, 27);
             packageNameTxt.TabIndex = 8;
             // 
             // packageBasePriceTxt
             // 
-            packageBasePriceTxt.Location = new Point(247, 358);
+            packageBasePriceTxt.Location = new Point(247, 332);
             packageBasePriceTxt.Name = "packageBasePriceTxt";
             packageBasePriceTxt.Size = new Size(173, 27);
             packageBasePriceTxt.TabIndex = 10;
             // 
             // packageCommisionTxt
             // 
-            packageCommisionTxt.Location = new Point(247, 401);
+            packageCommisionTxt.Location = new Point(247, 378);
             packageCommisionTxt.Name = "packageCommisionTxt";
             packageCommisionTxt.Size = new Size(173, 27);
             packageCommisionTxt.TabIndex = 11;
@@ -128,11 +130,12 @@
             // 
             // packageDescTxt
             // 
-            packageDescTxt.Location = new Point(247, 223);
+            packageDescTxt.Location = new Point(247, 213);
             packageDescTxt.Name = "packageDescTxt";
-            packageDescTxt.Size = new Size(230, 112);
+            packageDescTxt.Size = new Size(234, 85);
             packageDescTxt.TabIndex = 13;
             packageDescTxt.Text = "";
+            packageDescTxt.TextChanged += packageDescTxt_TextChanged;
             // 
             // PackageEndDateTxt
             // 
@@ -161,11 +164,31 @@
             cancelBtn.UseVisualStyleBackColor = true;
             cancelBtn.Click += cancelBtn_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(39, 426);
+            label1.Name = "label1";
+            label1.Size = new Size(69, 20);
+            label1.TabIndex = 17;
+            label1.Text = "Products:";
+            // 
+            // productsCombo
+            // 
+            productsCombo.FormattingEnabled = true;
+            productsCombo.Location = new Point(247, 426);
+            productsCombo.Name = "productsCombo";
+            productsCombo.Size = new Size(173, 28);
+            productsCombo.TabIndex = 18;
+            productsCombo.SelectedIndexChanged += productsCombo_SelectedIndexChanged;
+            // 
             // addOrUpdatePackageFrm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(802, 533);
+            Controls.Add(productsCombo);
+            Controls.Add(label1);
             Controls.Add(cancelBtn);
             Controls.Add(okBtn);
             Controls.Add(PackageEndDateTxt);
@@ -202,5 +225,7 @@
         private DateTimePicker PackageEndDateTxt;
         private Button okBtn;
         private Button cancelBtn;
+        private Label label1;
+        private ComboBox productsCombo;
     }
 }

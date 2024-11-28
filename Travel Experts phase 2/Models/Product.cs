@@ -11,6 +11,7 @@ namespace travel_experts_phase_2.Models
     {
         public Product()
         {
+            ProductsPackages = new HashSet<ProductsPackage>();
             ProductsSuppliers = new HashSet<ProductsSupplier>();
         }
 
@@ -19,6 +20,8 @@ namespace travel_experts_phase_2.Models
         [StringLength(50)]
         public string ProdName { get; set; } = null!;
 
+        [InverseProperty("Product")]
+        public virtual ICollection<ProductsPackage> ProductsPackages { get; set; }
         [InverseProperty("Product")]
         public virtual ICollection<ProductsSupplier> ProductsSuppliers { get; set; }
     }
