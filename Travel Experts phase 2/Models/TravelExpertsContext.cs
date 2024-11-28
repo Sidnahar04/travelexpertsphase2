@@ -329,13 +329,14 @@ namespace travel_experts_phase_2.Models
                     .HasForeignKey(d => d.CustomerId)
                     .HasConstraintName("FK_Users_Customers");
 
-            modelBuilder.Entity<VwPackageProduct>(entity =>
-            {
-                entity.ToView("vw_PackageProducts");
+                modelBuilder.Entity<VwPackageProduct>(entity =>
+                {
+                    entity.ToView("vw_PackageProducts");
 
-            });
+                });
 
-            OnModelCreatingPartial(modelBuilder);
+                OnModelCreatingPartial(modelBuilder);
+            }); 
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
