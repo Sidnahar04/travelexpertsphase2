@@ -87,6 +87,8 @@ namespace travel_experts_phase_2.Controllers
         // Verify Password
         private bool VerifyPassword(string plainText, string hashedPassword)
         {
+            System.Diagnostics.Debug.WriteLine($"enteredpassword {HashPassword(plainText)} savedPassword {hashedPassword}");
+            MessageBox.Show($"enteredpassword {HashPassword(plainText)} savedPassword {hashedPassword}");
             return HashPassword(plainText) == hashedPassword;
         }
     }

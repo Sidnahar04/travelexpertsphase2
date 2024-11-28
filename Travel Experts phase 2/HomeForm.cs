@@ -26,10 +26,7 @@ namespace travel_experts_phase_2
                 agenciesButton.Visible = true;
                 agentButton.Visible = true;
             }
-            else { 
-                productsButton.Visible = true;
-                productSuppliersButton.Visible = true;
-            }
+            
         }
 
         private void button2_Click(object sender, EventArgs e)

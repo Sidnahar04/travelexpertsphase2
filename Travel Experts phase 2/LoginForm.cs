@@ -71,7 +71,7 @@ namespace travel_experts_phase_2
                 }
                 else
                 {
-                    MessageBox.Show("Invalid email or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Wrong email or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
             }
