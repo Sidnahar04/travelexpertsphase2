@@ -96,7 +96,6 @@
             productsButton.TabIndex = 5;
             productsButton.Text = "Products";
             productsButton.UseVisualStyleBackColor = false;
-            productsButton.Visible = false;
             productsButton.Click += productsButton_Click;
             // 
             // productSuppliersButton
@@ -109,7 +108,6 @@
             productSuppliersButton.TabIndex = 4;
             productSuppliersButton.Text = "Product Suppliers";
             productSuppliersButton.UseVisualStyleBackColor = false;
-            productSuppliersButton.Visible = false;
             productSuppliersButton.Click += productSuppliersButton_Click;
             // 
             // HomeForm
