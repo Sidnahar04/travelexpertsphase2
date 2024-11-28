@@ -16,7 +16,6 @@ namespace travel_experts_phase_2.Models
         {
         }
 
-        public virtual DbSet<Admin> Admins { get; set; } = null!;
         public virtual DbSet<Affiliation> Affiliations { get; set; } = null!;
         public virtual DbSet<Agency> Agencies { get; set; } = null!;
         public virtual DbSet<Agent> Agents { get; set; } = null!;
@@ -31,20 +30,25 @@ namespace travel_experts_phase_2.Models
         public virtual DbSet<Package> Packages { get; set; } = null!;
         public virtual DbSet<PackagesProductsSupplier> PackagesProductsSuppliers { get; set; } = null!;
         public virtual DbSet<Product> Products { get; set; } = null!;
+        public virtual DbSet<ProductsPackage> ProductsPackages { get; set; } = null!;
         public virtual DbSet<ProductsSupplier> ProductsSuppliers { get; set; } = null!;
         public virtual DbSet<Region> Regions { get; set; } = null!;
         public virtual DbSet<Reward> Rewards { get; set; } = null!;
         public virtual DbSet<Supplier> Suppliers { get; set; } = null!;
         public virtual DbSet<SupplierContact> SupplierContacts { get; set; } = null!;
         public virtual DbSet<TripType> TripTypes { get; set; } = null!;
+
         public virtual DbSet<User> Users { get; set; } = null!;
+
+        public virtual DbSet<VwPackageProduct> VwPackageProducts { get; set; } = null!;
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=localhost\\sqlexpress;Initial Catalog=TravelExperts;Integrated Security=True; TrustServerCertificate=true");
+                optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=TravelExperts;Integrated Security=True; TrustServerCertificate=true");
             }
         }
 
@@ -195,7 +199,7 @@ namespace travel_experts_phase_2.Models
             modelBuilder.Entity<PackagesProductsSupplier>(entity =>
             {
                 entity.HasKey(e => e.PackageProductSupplierId)
-                    .HasName("PK__Packages__53E8ED99503AC85D");
+                    .HasName("PK__Packages__53E8ED993C80EAD8");
 
                 entity.HasOne(d => d.Package)
                     .WithMany(p => p.PackagesProductsSuppliers)
@@ -215,6 +219,24 @@ namespace travel_experts_phase_2.Models
                 entity.HasKey(e => e.ProductId)
                     .HasName("aaaaaProducts_PK")
                     .IsClustered(false);
+            });
+
+            modelBuilder.Entity<ProductsPackage>(entity =>
+            {
+                entity.HasKey(e => e.ProductPackageId)
+                    .HasName("PK_ProductPackage");
+
+                entity.HasOne(d => d.Package)
+                    .WithMany(p => p.ProductsPackages)
+                    .HasForeignKey(d => d.PackageId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Packages");
+
+                entity.HasOne(d => d.Product)
+                    .WithMany(p => p.ProductsPackages)
+                    .HasForeignKey(d => d.ProductId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Products");
             });
 
             modelBuilder.Entity<ProductsSupplier>(entity =>
@@ -289,6 +311,7 @@ namespace travel_experts_phase_2.Models
                     .IsClustered(false);
             });
 
+
             modelBuilder.Entity<User>(entity =>
             {
                 entity.HasOne(d => d.Admin)
@@ -305,6 +328,11 @@ namespace travel_experts_phase_2.Models
                     .WithMany(p => p.Users)
                     .HasForeignKey(d => d.CustomerId)
                     .HasConstraintName("FK_Users_Customers");
+
+            modelBuilder.Entity<VwPackageProduct>(entity =>
+            {
+                entity.ToView("vw_PackageProducts");
+
             });
 
             OnModelCreatingPartial(modelBuilder);
