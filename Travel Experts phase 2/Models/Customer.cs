@@ -14,6 +14,7 @@ namespace travel_experts_phase_2.Models
             Bookings = new HashSet<Booking>();
             CreditCards = new HashSet<CreditCard>();
             CustomersRewards = new HashSet<CustomersReward>();
+            Users = new HashSet<User>();
         }
 
         [Key]
@@ -49,5 +50,7 @@ namespace travel_experts_phase_2.Models
         public virtual ICollection<CreditCard> CreditCards { get; set; }
         [InverseProperty("Customer")]
         public virtual ICollection<CustomersReward> CustomersRewards { get; set; }
+        [InverseProperty("Customer")]
+        public virtual ICollection<User> Users { get; set; }
     }
 }
