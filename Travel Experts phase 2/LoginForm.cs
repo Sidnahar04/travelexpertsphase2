@@ -25,30 +25,6 @@ namespace travel_experts_phase_2
         {
 
 
-            //check if email is in admin to validate if present asign role as admin and return, if email is not in admin table then check agent table and if missing show error ogin failure,
-            AdminController controller = new AdminController();
-            if (controller.IsUserAdmin(email))
-            {
-                HomeForm adminHome = new HomeForm(true);
-                adminHome.Show();
-                loginForm.Hide();
-            }
-            else
-            {
-                AgentController agentController = new AgentController();
-                if (agentController.IsUserAnAgent(email))
-                {
-                    HomeForm agentHome = new HomeForm();
-                    agentHome.Show();
-                    loginForm.Hide();
-
-                }
-                else
-                {
-                    MessageBox.Show("The email does not exist, try a correct email address", "User does not exist", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                };
-            };
         }
 
         private void loginButton_Click(object sender, EventArgs e)
@@ -56,7 +32,48 @@ namespace travel_experts_phase_2
             String email = emailTextBox.Text;
             if (IsValidEmail(email))
             {
-                login(email, this);
+
+                string password = txtPassword.Text;
+
+                UserController userController = new UserController();
+                var user = userController.ValidateLogin(email, password);
+
+                if (user != null)
+                {
+                    MessageBox.Show($"Welcome, {user.Email}!", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Navigate to appropriate form
+                    switch (user.Role)
+                    {
+                        case "Admin":
+                            HomeForm adminForm = new HomeForm(true);
+                            this.Hide();
+                            adminForm.ShowDialog();
+                            this.Close();
+                            break;
+
+                        case "Agent":
+                            HomeForm agentForm = new HomeForm();
+                            this.Hide();
+                            agentForm.ShowDialog();
+                            this.Close();
+                            break;
+
+                        case "Customer":
+                            MessageBox.Show("This service is not for customers and only available for admin and agents", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                            break;
+
+                        default:
+                            MessageBox.Show("Invalid role assigned.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            break;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Wrong email or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
             }
             else
             {
@@ -91,6 +108,12 @@ namespace travel_experts_phase_2
         private void LoginForm_Load_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void showPasswordCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            txtPassword.UseSystemPasswordChar = !showPasswordCheckBox.Checked;
+            
         }
     }
 }

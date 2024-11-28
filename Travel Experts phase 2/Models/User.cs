@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace travel_experts_phase_2.Models
 {
-    [Index("Email", Name = "UQ__Users__A9D10534565CB852", IsUnique = true)]
+    [Index("Email", Name = "UQ__Users__A9D105348C971C85", IsUnique = true)]
     public partial class User
     {
         [Key]
@@ -18,7 +18,7 @@ namespace travel_experts_phase_2.Models
         public int? CustomerId { get; set; }
         [StringLength(50)]
         public string Role { get; set; } = null!;
-        [StringLength(255)]
+        [StringLength(64)]
         public string Password { get; set; } = null!;
 
         [ForeignKey("AdminId")]
