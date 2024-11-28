@@ -12,6 +12,7 @@ namespace travel_experts_phase_2.Models
         {
             Bookings = new HashSet<Booking>();
             PackagesProductsSuppliers = new HashSet<PackagesProductsSupplier>();
+            ProductsPackages = new HashSet<ProductsPackage>();
         }
 
         [Key]
@@ -33,5 +34,7 @@ namespace travel_experts_phase_2.Models
         public virtual ICollection<Booking> Bookings { get; set; }
         [InverseProperty("Package")]
         public virtual ICollection<PackagesProductsSupplier> PackagesProductsSuppliers { get; set; }
+        [InverseProperty("Package")]
+        public virtual ICollection<ProductsPackage> ProductsPackages { get; set; }
     }
 }
