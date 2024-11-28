@@ -37,6 +37,7 @@ namespace travel_experts_phase_2.Models
         public virtual DbSet<Supplier> Suppliers { get; set; } = null!;
         public virtual DbSet<SupplierContact> SupplierContacts { get; set; } = null!;
         public virtual DbSet<TripType> TripTypes { get; set; } = null!;
+        public virtual DbSet<User> Users { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -286,6 +287,24 @@ namespace travel_experts_phase_2.Models
                 entity.HasKey(e => e.TripTypeId)
                     .HasName("aaaaaTripTypes_PK")
                     .IsClustered(false);
+            });
+
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.HasOne(d => d.Admin)
+                    .WithMany(p => p.Users)
+                    .HasForeignKey(d => d.AdminId)
+                    .HasConstraintName("FK_Users_Admins");
+
+                entity.HasOne(d => d.Agent)
+                    .WithMany(p => p.Users)
+                    .HasForeignKey(d => d.AgentId)
+                    .HasConstraintName("FK_Users_Agents");
+
+                entity.HasOne(d => d.Customer)
+                    .WithMany(p => p.Users)
+                    .HasForeignKey(d => d.CustomerId)
+                    .HasConstraintName("FK_Users_Customers");
             });
 
             OnModelCreatingPartial(modelBuilder);
