@@ -26,7 +26,23 @@ namespace travel_experts_phase_2
         private void ProductSupplierFrm_Load(object sender, EventArgs e)
         {
             List<ProductSupplierViewModel> productSuppliers = productSupplierController.GetAllProductsAndSuppliers();
+
+            dgvProductSupplier.AutoGenerateColumns = false;
+
             dgvProductSupplier.DataSource = productSuppliers;
+
+            dgvProductSupplier.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "SupName",
+                HeaderText = "Supplier Name",
+                Width = 250
+            });
+            dgvProductSupplier.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "ProdName",
+                HeaderText = "Product Name",
+                Width = 250
+            });
         }
 
         private void editbtn_Click(object sender, EventArgs e)
@@ -74,29 +90,8 @@ namespace travel_experts_phase_2
             if (result == DialogResult.OK)
             {
                 selectedProductSupplier = addOrUpdateProductSupplierFrm.ProductSupplier;
-                //productSupplierController.AddPackage(selectedPackage);
+                productSupplierController.AddProductSupplier(selectedProductSupplier);
                 displayAllProductSuppliers();
-            }
-        }
-
-        private void deletebtn_Click(object sender, EventArgs e)
-        {
-            if (dgvProductSupplier.SelectedRows.Count > 0)
-            {
-                DataGridViewRow selectedRow = dgvProductSupplier.SelectedRows[0];
-                var productSupplierToDelete = productSupplierController.ConvertToProductSupplierModel(selectedRow);
-                DialogResult result = MessageBox.Show($"Are you sure you want to delete {productSupplierToDelete.SupName}?",
-                    "Confirm Delete", MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
-                {
-                    productSupplierController.deletePackage(productSupplierToDelete);
-                    displayAllProductSuppliers();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please select a row to modify.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

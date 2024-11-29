@@ -31,7 +31,6 @@
             dgvProductSupplier = new DataGridView();
             addbtn = new Button();
             editbtn = new Button();
-            deletebtn = new Button();
             label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvProductSupplier).BeginInit();
             SuspendLayout();
@@ -67,16 +66,6 @@
             editbtn.UseVisualStyleBackColor = true;
             editbtn.Click += editbtn_Click;
             // 
-            // deletebtn
-            // 
-            deletebtn.Location = new Point(397, 442);
-            deletebtn.Name = "deletebtn";
-            deletebtn.Size = new Size(108, 40);
-            deletebtn.TabIndex = 3;
-            deletebtn.Text = "Delete";
-            deletebtn.UseVisualStyleBackColor = true;
-            deletebtn.Click += deletebtn_Click;
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -94,7 +83,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(982, 503);
             Controls.Add(label1);
-            Controls.Add(deletebtn);
             Controls.Add(editbtn);
             Controls.Add(addbtn);
             Controls.Add(dgvProductSupplier);

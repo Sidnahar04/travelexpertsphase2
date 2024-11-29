@@ -30,11 +30,11 @@
         {
             label1 = new Label();
             label2 = new Label();
-            suppliertxt = new TextBox();
             productcombo = new ComboBox();
             okBtn = new Button();
             cancelBtn = new Button();
             label3 = new Label();
+            supplierCombobox = new ComboBox();
             SuspendLayout();
             // 
             // label1
@@ -55,19 +55,12 @@
             label2.TabIndex = 1;
             label2.Text = "Product Name:";
             // 
-            // suppliertxt
-            // 
-            suppliertxt.Location = new Point(168, 108);
-            suppliertxt.Name = "suppliertxt";
-            suppliertxt.Size = new Size(259, 27);
-            suppliertxt.TabIndex = 2;
-            // 
             // productcombo
             // 
             productcombo.FormattingEnabled = true;
             productcombo.Location = new Point(168, 177);
             productcombo.Name = "productcombo";
-            productcombo.Size = new Size(259, 28);
+            productcombo.Size = new Size(371, 28);
             productcombo.TabIndex = 3;
             // 
             // okBtn
@@ -78,6 +71,7 @@
             okBtn.TabIndex = 4;
             okBtn.Text = "OK";
             okBtn.UseVisualStyleBackColor = true;
+            okBtn.Click += okBtn_Click;
             // 
             // cancelBtn
             // 
@@ -99,20 +93,29 @@
             label3.TabIndex = 6;
             label3.Text = "Product Supplier Form";
             // 
+            // supplierCombobox
+            // 
+            supplierCombobox.FormattingEnabled = true;
+            supplierCombobox.Location = new Point(168, 105);
+            supplierCombobox.Name = "supplierCombobox";
+            supplierCombobox.Size = new Size(371, 28);
+            supplierCombobox.TabIndex = 7;
+            // 
             // addOrUpdateProductSupplierForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(supplierCombobox);
             Controls.Add(label3);
             Controls.Add(cancelBtn);
             Controls.Add(okBtn);
             Controls.Add(productcombo);
-            Controls.Add(suppliertxt);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "addOrUpdateProductSupplierForm";
             Text = "addOrUpdateProductSupplierForm";
+            Load += addOrUpdateProductSupplierForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -121,10 +124,10 @@
 
         private Label label1;
         private Label label2;
-        private TextBox suppliertxt;
         private ComboBox productcombo;
         private Button okBtn;
         private Button cancelBtn;
         private Label label3;
+        private ComboBox supplierCombobox;
     }
 }
