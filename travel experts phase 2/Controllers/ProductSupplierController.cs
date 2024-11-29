@@ -71,5 +71,16 @@ namespace travel_experts_phase_2.Controllers
                 SupName = s.Supplier.SupName,
             }).ToList();
         }
+
+        public void UpdateProductSupplier(ProductSupplierViewModel updatedProductSupplierInfo)
+        {
+            var detailsOfProductSupplier = context.ProductsSuppliers.FirstOrDefault(ps =>
+                ps.ProductSupplierId == updatedProductSupplierInfo.ProductSupplierId);
+            detailsOfProductSupplier.ProductId = updatedProductSupplierInfo.ProductId;
+            detailsOfProductSupplier.SupplierId = updatedProductSupplierInfo.SupplierId;
+
+            context.ProductsSuppliers.Update(detailsOfProductSupplier);
+            context.SaveChanges();
+        }
     }
 }

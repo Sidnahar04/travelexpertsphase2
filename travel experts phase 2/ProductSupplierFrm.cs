@@ -33,21 +33,72 @@ namespace travel_experts_phase_2
 
             dgvProductSupplier.Columns.Add(new DataGridViewTextBoxColumn
             {
+                Name = "SupName",
                 DataPropertyName = "SupName",
                 HeaderText = "Supplier Name",
                 Width = 250
             });
             dgvProductSupplier.Columns.Add(new DataGridViewTextBoxColumn
             {
+                Name ="ProdName",
                 DataPropertyName = "ProdName",
                 HeaderText = "Product Name",
                 Width = 250
+            });
+            dgvProductSupplier.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "ProductSupplierId", // Set the Name explicitly
+                DataPropertyName = "ProductSupplierId",
+                HeaderText = "ProductSupplierId",
+                Visible = false
+            });
+            dgvProductSupplier.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "ProductId", // Set the Name explicitly
+                DataPropertyName = "ProductId",
+                HeaderText = "ProductId",
+                Visible = false
+            });
+            dgvProductSupplier.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "SupplierId", // Set the Name explicitly
+                DataPropertyName = "SupplierId",
+                HeaderText = "SupplierId",
+                Visible = false
             });
         }
 
         private void editbtn_Click(object sender, EventArgs e)
         {
+            if(dgvProductSupplier.SelectedRows.Count > 0)
+            {
 
+                // Get the selected row
+                DataGridViewRow selectedRow = dgvProductSupplier.SelectedRows[0];
+
+                // Create and display the update form with the selected row's data
+                addOrUpdateProductSupplierForm UpdateProductSupplierForm = new()
+                {
+                    ProductSupplier = productSupplierController.ConvertToProductSupplierModel(selectedRow)
+                };
+                DialogResult result = UpdateProductSupplierForm.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    // Get the updated package info from the form
+                    var UpdatedProductSupplierInfo = UpdateProductSupplierForm.ProductSupplier;
+
+                    // Update the package in the database
+                    productSupplierController.UpdateProductSupplier(UpdatedProductSupplierInfo);
+
+                    // Refresh the displayed packages
+                    displayAllProductSuppliers();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to modify.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void dgvProductSupplier_CellContentClick(object sender, DataGridViewCellEventArgs e)

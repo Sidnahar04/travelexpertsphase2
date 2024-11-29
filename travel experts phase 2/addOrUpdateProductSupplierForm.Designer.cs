@@ -100,6 +100,7 @@
             supplierCombobox.Name = "supplierCombobox";
             supplierCombobox.Size = new Size(371, 28);
             supplierCombobox.TabIndex = 7;
+            supplierCombobox.SelectedIndexChanged += supplierCombobox_SelectedIndexChanged;
             // 
             // addOrUpdateProductSupplierForm
             // 
