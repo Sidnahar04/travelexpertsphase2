@@ -36,13 +36,15 @@
             SupplierView = new DataGridView();
             SuppliersLbl = new Label();
             ViewBtn = new Button();
-            SupplierViewBox = new TextBox();
             UpdateLbl = new Label();
             AddLbl = new Label();
             SupNameLbl = new Label();
             NameAddBox = new TextBox();
             confirmBtn = new Button();
             cancelBtn = new Button();
+            selectedSupplierIdTextbox = new TextBox();
+            selectedSupplierIdlabel = new Label();
+            confrimAddButton = new Button();
             ((System.ComponentModel.ISupportInitialize)SupplierView).BeginInit();
             SuspendLayout();
             // 
@@ -95,6 +97,7 @@
             // 
             // SupplierView
             // 
+            SupplierView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             SupplierView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             SupplierView.Location = new Point(268, 132);
             SupplierView.Name = "SupplierView";
@@ -114,21 +117,13 @@
             // 
             // ViewBtn
             // 
-            ViewBtn.Location = new Point(28, 339);
+            ViewBtn.Location = new Point(265, 348);
             ViewBtn.Name = "ViewBtn";
             ViewBtn.Size = new Size(204, 23);
             ViewBtn.TabIndex = 9;
             ViewBtn.Text = "View Selected Supplier";
             ViewBtn.UseVisualStyleBackColor = true;
             ViewBtn.Click += ViewBtn_Click;
-            // 
-            // SupplierViewBox
-            // 
-            SupplierViewBox.AcceptsReturn = true;
-            SupplierViewBox.Location = new Point(268, 340);
-            SupplierViewBox.Name = "SupplierViewBox";
-            SupplierViewBox.Size = new Size(463, 23);
-            SupplierViewBox.TabIndex = 10;
             // 
             // UpdateLbl
             // 
@@ -166,11 +161,11 @@
             // 
             // confirmBtn
             // 
-            confirmBtn.Location = new Point(265, 523);
+            confirmBtn.Location = new Point(208, 523);
             confirmBtn.Name = "confirmBtn";
-            confirmBtn.Size = new Size(75, 23);
+            confirmBtn.Size = new Size(132, 23);
             confirmBtn.TabIndex = 15;
-            confirmBtn.Text = "Confirm";
+            confirmBtn.Text = "Confirm Update";
             confirmBtn.UseVisualStyleBackColor = true;
             confirmBtn.Click += confirmBtn_Click;
             // 
@@ -184,18 +179,47 @@
             cancelBtn.UseVisualStyleBackColor = true;
             cancelBtn.Click += cancelBtn_Click;
             // 
+            // selectedSupplierIdTextbox
+            // 
+            selectedSupplierIdTextbox.Location = new Point(265, 434);
+            selectedSupplierIdTextbox.Name = "selectedSupplierIdTextbox";
+            selectedSupplierIdTextbox.Size = new Size(466, 23);
+            selectedSupplierIdTextbox.TabIndex = 18;
+            // 
+            // selectedSupplierIdlabel
+            // 
+            selectedSupplierIdlabel.AutoSize = true;
+            selectedSupplierIdlabel.Location = new Point(171, 437);
+            selectedSupplierIdlabel.Name = "selectedSupplierIdlabel";
+            selectedSupplierIdlabel.Size = new Size(67, 15);
+            selectedSupplierIdlabel.TabIndex = 17;
+            selectedSupplierIdlabel.Text = "Supplier ID:";
+            // 
+            // confrimAddButton
+            // 
+            confrimAddButton.Location = new Point(208, 523);
+            confrimAddButton.Name = "confrimAddButton";
+            confrimAddButton.Size = new Size(132, 23);
+            confrimAddButton.TabIndex = 19;
+            confrimAddButton.Text = "Confirm Add";
+            confrimAddButton.UseVisualStyleBackColor = true;
+            confrimAddButton.Visible = false;
+            confrimAddButton.Click += confrimAddButton_Click;
+            // 
             // Suppliers
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 582);
+            Controls.Add(confrimAddButton);
+            Controls.Add(selectedSupplierIdTextbox);
+            Controls.Add(selectedSupplierIdlabel);
             Controls.Add(cancelBtn);
             Controls.Add(confirmBtn);
             Controls.Add(NameAddBox);
             Controls.Add(SupNameLbl);
             Controls.Add(AddLbl);
             Controls.Add(UpdateLbl);
-            Controls.Add(SupplierViewBox);
             Controls.Add(ViewBtn);
             Controls.Add(SuppliersLbl);
             Controls.Add(SupplierView);
@@ -221,12 +245,14 @@
         private DataGridView SupplierView;
         private Label SuppliersLbl;
         private Button ViewBtn;
-        private TextBox SupplierViewBox;
         private Label UpdateLbl;
         private Label AddLbl;
         private Label SupNameLbl;
         private TextBox NameAddBox;
         private Button confirmBtn;
         private Button cancelBtn;
+        private TextBox selectedSupplierIdTextbox;
+        private Label selectedSupplierIdlabel;
+        private Button confrimAddButton;
     }
 }

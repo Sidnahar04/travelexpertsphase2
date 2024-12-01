@@ -28,7 +28,7 @@ namespace travel_experts_phase_2.Controllers
                     PkgAgencyCommission = Math.Round((decimal)package.PkgAgencyCommission, 2)
                 }).ToList();
 
-                return packages;
+                return packages;  
             }
         }
 

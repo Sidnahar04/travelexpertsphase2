@@ -37,12 +37,15 @@ namespace travel_experts_phase_2.Controllers
 
         }
 
+       
+
+
         public void AddSupplier(SuppliersViewModel supplierViewModel)
 
         {
-
             var supplier = new Supplier
             {
+                SupplierId = supplierViewModel.SupplierId,
 
                 SupName = supplierViewModel.SupplierName
 
@@ -65,8 +68,10 @@ namespace travel_experts_phase_2.Controllers
 
         }
 
+
+
         public void UpdateSupplier(SuppliersViewModel supplierViewModel)
-        {
+        { 
             var supplier = new Supplier
 
             {
@@ -90,12 +95,12 @@ namespace travel_experts_phase_2.Controllers
             {
                 SupplierId = Convert.ToInt32(row.Cells["SupplierId"].Value),
 
-                SupName = row.Cells["SupName"].Value.ToString()
+                SupName = row.Cells["SupplierName"].Value.ToString(),
 
             };
 
         }
-
+                    
         public SuppliersViewModel ConvertToSuppliersViewModel(DataGridViewRow row)
         {
 
@@ -105,7 +110,7 @@ namespace travel_experts_phase_2.Controllers
 
                 SupplierId = Convert.ToInt32(row.Cells["SupplierId"].Value),
 
-                SupplierName = row.Cells["SupName"].Value.ToString(),
+                SupplierName = row.Cells["SupplierName"].Value.ToString(),
             };
 
         }

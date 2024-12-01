@@ -4,6 +4,8 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
+using travel_experts_phase_2.Models;
 
 namespace travel_experts_phase_2
 {
@@ -78,5 +80,16 @@ namespace travel_experts_phase_2
             }
             return true;
         }
+        public static bool IsPositiveInt(string value, string fieldName, Control control)
+        {
+            if (!int.TryParse(value, out int result) || result < 0)
+            {
+                MessageBox.Show($"{fieldName} must be a positive integer.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                control.Focus();
+                return false;
+            }
+            return true;
+        }
+        
     }
 }
