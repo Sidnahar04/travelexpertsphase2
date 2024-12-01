@@ -150,9 +150,9 @@
             btnUpdateAgent.BackColor = SystemColors.ActiveCaption;
             btnUpdateAgent.Location = new Point(23, 347);
             btnUpdateAgent.Name = "btnUpdateAgent";
-            btnUpdateAgent.Size = new Size(192, 42);
+            btnUpdateAgent.Size = new Size(255, 42);
             btnUpdateAgent.TabIndex = 3;
-            btnUpdateAgent.Text = "Update Agent Information";
+            btnUpdateAgent.Text = "Update Above Agent Information";
             btnUpdateAgent.UseVisualStyleBackColor = false;
             btnUpdateAgent.Click += btnUpdateAgent_Click;
             // 
@@ -161,9 +161,9 @@
             btnDeleteAgent.BackColor = SystemColors.ActiveCaption;
             btnDeleteAgent.Location = new Point(23, 411);
             btnDeleteAgent.Name = "btnDeleteAgent";
-            btnDeleteAgent.Size = new Size(192, 38);
+            btnDeleteAgent.Size = new Size(255, 38);
             btnDeleteAgent.TabIndex = 4;
-            btnDeleteAgent.Text = "Delete Agent Information";
+            btnDeleteAgent.Text = "Delete Selected Agent Information";
             btnDeleteAgent.UseVisualStyleBackColor = false;
             btnDeleteAgent.Click += btnDeleteAgent_Click;
             // 
