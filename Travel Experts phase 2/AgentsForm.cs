@@ -51,6 +51,7 @@ namespace travel_experts_phase_2
                 context.Agents.Add(agent);
                 context.SaveChanges();
             }
+            cmbAgentId.Items.Clear();
             PopulateComboBox();
         }
 
@@ -68,8 +69,10 @@ namespace travel_experts_phase_2
                     agent.AgtBusPhone = txtPhone.Text;
                     agent.AgtEmail = txtEmail.Text;
                     agent.AgtPosition = txtRoles.Text;
+                    context.SaveChanges();
                 }
             }
+            cmbAgentId.Items.Clear();
             PopulateComboBox();
         }
 
@@ -78,12 +81,14 @@ namespace travel_experts_phase_2
         {
             using (var context = new TravelExpertsContext())
             {
-                var agent = context.Agents.FirstOrDefault();
+                var agent = context.Agents.Where(a => a.AgtFirstName == txtFirstName.Text ).FirstOrDefault();
                 if (agent != null)
                 {
                     context.Agents.Remove(agent);
+                    context.SaveChanges();
                 }
             }
+            cmbAgentId.Items.Clear();
             PopulateComboBox();
         }
 
