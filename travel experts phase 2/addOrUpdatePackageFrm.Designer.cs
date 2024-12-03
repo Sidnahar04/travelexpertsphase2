@@ -49,106 +49,128 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(39, 62);
+            label2.Location = new Point(34, 31);
             label2.Name = "label2";
-            label2.Size = new Size(52, 20);
+            label2.Size = new Size(42, 15);
             label2.TabIndex = 1;
             label2.Text = "Name:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(39, 103);
+            label3.Location = new Point(34, 77);
             label3.Name = "label3";
-            label3.Size = new Size(79, 20);
+            label3.Size = new Size(61, 15);
             label3.TabIndex = 2;
             label3.Text = "Start Date:";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(39, 156);
+            label4.Location = new Point(34, 117);
             label4.Name = "label4";
-            label4.Size = new Size(73, 20);
+            label4.Size = new Size(57, 15);
             label4.TabIndex = 3;
             label4.Text = "End Date:";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(39, 213);
+
+            label5.Location = new Point(34, 167);
+
             label5.Name = "label5";
-            label5.Size = new Size(88, 20);
+            label5.Size = new Size(70, 15);
             label5.TabIndex = 4;
             label5.Text = "Description:";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(39, 335);
+
+            label6.Location = new Point(34, 271);
+
             label6.Name = "label6";
-            label6.Size = new Size(79, 20);
+            label6.Size = new Size(63, 15);
             label6.TabIndex = 5;
             label6.Text = "Base Price:";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(39, 378);
+
+            label7.Location = new Point(34, 303);
+
             label7.Name = "label7";
-            label7.Size = new Size(146, 20);
+            label7.Size = new Size(120, 15);
             label7.TabIndex = 6;
             label7.Text = "Agency Commission:";
             // 
             // packageNameTxt
             // 
-            packageNameTxt.Location = new Point(247, 59);
+
+            packageNameTxt.Location = new Point(216, 31);
+            packageNameTxt.Margin = new Padding(3, 2, 3, 2);
+
             packageNameTxt.Name = "packageNameTxt";
-            packageNameTxt.Size = new Size(173, 27);
+            packageNameTxt.Size = new Size(152, 23);
             packageNameTxt.TabIndex = 8;
+            packageNameTxt.TextChanged += packageNameTxt_TextChanged;
             // 
             // packageBasePriceTxt
             // 
-            packageBasePriceTxt.Location = new Point(247, 332);
+
+            packageBasePriceTxt.Location = new Point(216, 268);
+            packageBasePriceTxt.Margin = new Padding(3, 2, 3, 2);
+
             packageBasePriceTxt.Name = "packageBasePriceTxt";
-            packageBasePriceTxt.Size = new Size(173, 27);
+            packageBasePriceTxt.Size = new Size(152, 23);
             packageBasePriceTxt.TabIndex = 10;
             // 
             // packageCommisionTxt
             // 
-            packageCommisionTxt.Location = new Point(247, 378);
+
+            packageCommisionTxt.Location = new Point(216, 301);
+            packageCommisionTxt.Margin = new Padding(3, 2, 3, 2);
+
             packageCommisionTxt.Name = "packageCommisionTxt";
-            packageCommisionTxt.Size = new Size(173, 27);
+            packageCommisionTxt.Size = new Size(152, 23);
             packageCommisionTxt.TabIndex = 11;
             // 
             // PackageStartDateTxt
             // 
-            PackageStartDateTxt.Location = new Point(247, 103);
+            PackageStartDateTxt.Location = new Point(216, 77);
+            PackageStartDateTxt.Margin = new Padding(3, 2, 3, 2);
             PackageStartDateTxt.Name = "PackageStartDateTxt";
-            PackageStartDateTxt.Size = new Size(173, 27);
+            PackageStartDateTxt.Size = new Size(152, 23);
             PackageStartDateTxt.TabIndex = 12;
             // 
             // packageDescTxt
             // 
-            packageDescTxt.Location = new Point(247, 213);
+
+            packageDescTxt.Location = new Point(216, 167);
+            packageDescTxt.Margin = new Padding(3, 2, 3, 2);
             packageDescTxt.Name = "packageDescTxt";
-            packageDescTxt.Size = new Size(234, 85);
+            packageDescTxt.Size = new Size(202, 85);
+
             packageDescTxt.TabIndex = 13;
             packageDescTxt.Text = "";
             packageDescTxt.TextChanged += packageDescTxt_TextChanged;
             // 
             // PackageEndDateTxt
             // 
-            PackageEndDateTxt.Location = new Point(247, 156);
+            PackageEndDateTxt.Location = new Point(216, 117);
+            PackageEndDateTxt.Margin = new Padding(3, 2, 3, 2);
             PackageEndDateTxt.Name = "PackageEndDateTxt";
-            PackageEndDateTxt.Size = new Size(173, 27);
+            PackageEndDateTxt.Size = new Size(152, 23);
             PackageEndDateTxt.TabIndex = 14;
             // 
             // okBtn
             // 
-            okBtn.Location = new Point(49, 480);
+            okBtn.Location = new Point(43, 360);
+            okBtn.Margin = new Padding(3, 2, 3, 2);
             okBtn.Name = "okBtn";
-            okBtn.Size = new Size(187, 29);
+            okBtn.Size = new Size(164, 22);
             okBtn.TabIndex = 15;
             okBtn.Text = "OK";
             okBtn.UseVisualStyleBackColor = true;
@@ -156,9 +178,10 @@
             // 
             // cancelBtn
             // 
-            cancelBtn.Location = new Point(326, 480);
+            cancelBtn.Location = new Point(285, 360);
+            cancelBtn.Margin = new Padding(3, 2, 3, 2);
             cancelBtn.Name = "cancelBtn";
-            cancelBtn.Size = new Size(177, 29);
+            cancelBtn.Size = new Size(155, 22);
             cancelBtn.TabIndex = 16;
             cancelBtn.Text = "Cancel";
             cancelBtn.UseVisualStyleBackColor = true;
@@ -184,11 +207,15 @@
             // 
             // addOrUpdatePackageFrm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+
+            ClientSize = new Size(702, 400);
+
             ClientSize = new Size(802, 533);
             Controls.Add(productsCombo);
             Controls.Add(label1);
+
             Controls.Add(cancelBtn);
             Controls.Add(okBtn);
             Controls.Add(PackageEndDateTxt);
@@ -203,6 +230,7 @@
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "addOrUpdatePackageFrm";
             Text = "addOrUpdatePackageFrm";
             Load += addOrUpdatePackageFrm_Load;

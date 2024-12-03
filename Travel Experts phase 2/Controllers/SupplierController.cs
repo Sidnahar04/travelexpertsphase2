@@ -37,44 +37,41 @@ namespace travel_experts_phase_2.Controllers
 
         }
 
+       
+
+
         public void AddSupplier(SuppliersViewModel supplierViewModel)
 
         {
-
             var supplier = new Supplier
-
             {
+                SupplierId = supplierViewModel.SupplierId,
 
-                SupName = supplierViewModel.SupplierName,
+                SupName = supplierViewModel.SupplierName
 
             };
 
             context.Suppliers.Add(supplier);
 
             context.SaveChanges();
-
         }
 
         public void deleteSupplier(Supplier supplierToBeDeleted)
-
         {
 
             if (supplierToBeDeleted != null)
-
             {
-
                 context.Suppliers.Remove(supplierToBeDeleted);
-
                 context.SaveChanges();
 
             }
 
         }
 
+
+
         public void UpdateSupplier(SuppliersViewModel supplierViewModel)
-
-        {
-
+        { 
             var supplier = new Supplier
 
             {
@@ -92,24 +89,19 @@ namespace travel_experts_phase_2.Controllers
         }
 
 
-        public Supplier ConvertToProductFromDataGrid(DataGridViewRow row)
-
+        public Supplier ConvertToSupplierFromDataGrid(DataGridViewRow row)
         {
-
             return new Supplier
-
             {
-
                 SupplierId = Convert.ToInt32(row.Cells["SupplierId"].Value),
 
-                SupName = row.Cells["SupName"].Value.ToString(),
+                SupName = row.Cells["SupplierName"].Value.ToString(),
 
             };
 
         }
-
+                    
         public SuppliersViewModel ConvertToSuppliersViewModel(DataGridViewRow row)
-
         {
 
             return new SuppliersViewModel
@@ -118,8 +110,7 @@ namespace travel_experts_phase_2.Controllers
 
                 SupplierId = Convert.ToInt32(row.Cells["SupplierId"].Value),
 
-                SupplierName = row.Cells["SupName"].Value.ToString(),
-
+                SupplierName = row.Cells["SupplierName"].Value.ToString(),
             };
 
         }

@@ -25,7 +25,7 @@ namespace travel_experts_phase_2.Controllers
                     ProdName = package.ProdName,
                 }).OrderBy(p => p.PackageId).ToList();
 
-                return packages;
+                return packages;  
             }
         }
 
