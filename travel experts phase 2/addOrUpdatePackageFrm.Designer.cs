@@ -42,6 +42,8 @@
             PackageEndDateTxt = new DateTimePicker();
             okBtn = new Button();
             cancelBtn = new Button();
+            label1 = new Label();
+            productsCombo = new ComboBox();
             SuspendLayout();
             // 
             // label2
@@ -74,7 +76,9 @@
             // label5
             // 
             label5.AutoSize = true;
+
             label5.Location = new Point(34, 167);
+
             label5.Name = "label5";
             label5.Size = new Size(70, 15);
             label5.TabIndex = 4;
@@ -83,7 +87,9 @@
             // label6
             // 
             label6.AutoSize = true;
+
             label6.Location = new Point(34, 271);
+
             label6.Name = "label6";
             label6.Size = new Size(63, 15);
             label6.TabIndex = 5;
@@ -92,7 +98,9 @@
             // label7
             // 
             label7.AutoSize = true;
+
             label7.Location = new Point(34, 303);
+
             label7.Name = "label7";
             label7.Size = new Size(120, 15);
             label7.TabIndex = 6;
@@ -100,8 +108,10 @@
             // 
             // packageNameTxt
             // 
+
             packageNameTxt.Location = new Point(216, 31);
             packageNameTxt.Margin = new Padding(3, 2, 3, 2);
+
             packageNameTxt.Name = "packageNameTxt";
             packageNameTxt.Size = new Size(152, 23);
             packageNameTxt.TabIndex = 8;
@@ -109,16 +119,20 @@
             // 
             // packageBasePriceTxt
             // 
+
             packageBasePriceTxt.Location = new Point(216, 268);
             packageBasePriceTxt.Margin = new Padding(3, 2, 3, 2);
+
             packageBasePriceTxt.Name = "packageBasePriceTxt";
             packageBasePriceTxt.Size = new Size(152, 23);
             packageBasePriceTxt.TabIndex = 10;
             // 
             // packageCommisionTxt
             // 
+
             packageCommisionTxt.Location = new Point(216, 301);
             packageCommisionTxt.Margin = new Padding(3, 2, 3, 2);
+
             packageCommisionTxt.Name = "packageCommisionTxt";
             packageCommisionTxt.Size = new Size(152, 23);
             packageCommisionTxt.TabIndex = 11;
@@ -133,12 +147,15 @@
             // 
             // packageDescTxt
             // 
+
             packageDescTxt.Location = new Point(216, 167);
             packageDescTxt.Margin = new Padding(3, 2, 3, 2);
             packageDescTxt.Name = "packageDescTxt";
             packageDescTxt.Size = new Size(202, 85);
+
             packageDescTxt.TabIndex = 13;
             packageDescTxt.Text = "";
+            packageDescTxt.TextChanged += packageDescTxt_TextChanged;
             // 
             // PackageEndDateTxt
             // 
@@ -170,11 +187,35 @@
             cancelBtn.UseVisualStyleBackColor = true;
             cancelBtn.Click += cancelBtn_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(39, 426);
+            label1.Name = "label1";
+            label1.Size = new Size(69, 20);
+            label1.TabIndex = 17;
+            label1.Text = "Products:";
+            // 
+            // productsCombo
+            // 
+            productsCombo.FormattingEnabled = true;
+            productsCombo.Location = new Point(247, 426);
+            productsCombo.Name = "productsCombo";
+            productsCombo.Size = new Size(173, 28);
+            productsCombo.TabIndex = 18;
+            productsCombo.SelectedIndexChanged += productsCombo_SelectedIndexChanged;
+            // 
             // addOrUpdatePackageFrm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+
             ClientSize = new Size(702, 400);
+
+            ClientSize = new Size(802, 533);
+            Controls.Add(productsCombo);
+            Controls.Add(label1);
+
             Controls.Add(cancelBtn);
             Controls.Add(okBtn);
             Controls.Add(PackageEndDateTxt);
@@ -212,5 +253,7 @@
         private DateTimePicker PackageEndDateTxt;
         private Button okBtn;
         private Button cancelBtn;
+        private Label label1;
+        private ComboBox productsCombo;
     }
 }

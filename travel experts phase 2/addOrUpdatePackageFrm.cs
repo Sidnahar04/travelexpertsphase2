@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using travel_experts_phase_2.Controllers;
+﻿using travel_experts_phase_2.Controllers;
 using travel_experts_phase_2.Models;
 using travel_experts_phase_2.ViewModels;
 
@@ -18,9 +8,11 @@ namespace travel_experts_phase_2
     {
         public PackageViewModel Package { get; set; } = null!;
         public bool IsViewPackage { get; set; } = false;
+        private Product selectedProduct;
         public addOrUpdatePackageFrm()
         {
             InitializeComponent();
+            displayProducts();
         }
 
         private void addOrUpdatePackageFrm_Load(object sender, EventArgs e)
@@ -32,7 +24,7 @@ namespace travel_experts_phase_2
             }
             else if (IsViewPackage)
             {
-                Text = "Update Package";
+                Text = "View Package";
                 DisplayPackageDetails();
                 packageNameTxt.Enabled = false;
                 PackageStartDateTxt.Enabled = false;
@@ -40,12 +32,12 @@ namespace travel_experts_phase_2
                 packageDescTxt.Enabled = false;
                 packageBasePriceTxt.Enabled = false;
                 packageCommisionTxt.Enabled = false;
+                productsCombo.Enabled = false;
             }
             else
             {
                 Text = "Update Package";
                 DisplayPackageDetails();
-
             }
         }
 
@@ -53,7 +45,6 @@ namespace travel_experts_phase_2
         {
             if (ValidateInputs() && ValidateDates())
             {
-
                 //Package.PackageId = int.Parse(packageIdTxt.Text);
                 Package.PkgName = packageNameTxt.Text;
                 Package.PkgDesc = packageDescTxt.Text;
@@ -74,6 +65,7 @@ namespace travel_experts_phase_2
             packageDescTxt.Text = Package.PkgDesc;
             packageBasePriceTxt.Text = Package.PkgBasePrice.ToString();
             packageCommisionTxt.Text = Package.PkgAgencyCommission.ToString();
+            SetSelectedProduct(Package.ProdName);
             packageNameTxt.Focus();
         }
 
@@ -111,9 +103,47 @@ namespace travel_experts_phase_2
             return true;
         }
 
+
         private void packageNameTxt_TextChanged(object sender, EventArgs e)
         {
 
+
+        private void packageDescTxt_TextChanged(object sender, EventArgs e)
+        {
+
         }
+
+        private void displayProducts()
+        {
+            PackageController packageController = new PackageController();
+            var products = packageController.GetAllProducts();
+
+            // Bind products to the ComboBox
+            productsCombo.DataSource = products;
+            productsCombo.DisplayMember = "ProdName"; // Display name for the ComboBox
+            productsCombo.ValueMember = "ProductId"; // Unique identifier for the ComboBox
+        }
+
+        private void productsCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (productsCombo.SelectedItem is Product selectedProduct && Package != null)
+            {
+                //selectedProductPackage = selectedProduct;
+                Package.ProdName = selectedProduct.ProdName;
+                Package.ProdID = selectedProduct.ProductId;
+            }
+        }
+
+        public void SetSelectedProduct(string prodName)
+        {
+            var products = (List<Product>)productsCombo.DataSource;
+            var selectedProduct = products.FirstOrDefault(p => p.ProdName == prodName);
+
+            if (selectedProduct != null)
+            {
+                productsCombo.SelectedValue = selectedProduct.ProductId;
+            }
+        }
+
     }
 }

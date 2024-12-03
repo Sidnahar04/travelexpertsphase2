@@ -79,11 +79,14 @@ namespace travel_experts_phase_2
             {
                 DataGridViewRow selectedRow = dgvPackages.SelectedRows[0];
                 var packageToDelete = packageController.ConvertToPackageForDataGrid(selectedRow);
+                //var productPackageToDelete = packageController.ConvertToProductPackageForDataGrid(selectedRow);
                 DialogResult result = MessageBox.Show($"Are you sure you want to delete {packageToDelete.PkgName}?",
                     "Confirm Delete", MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
+
+                    packageController.deleteProductPackage(packageToDelete.PackageId);
                     packageController.deletePackage(packageToDelete);
                     displayAllPackages();
                 }
@@ -98,6 +101,7 @@ namespace travel_experts_phase_2
         {
             if (dgvPackages.SelectedRows.Count > 0)
             {
+
                 // Get the selected row
                 DataGridViewRow selectedRow = dgvPackages.SelectedRows[0];
 
@@ -106,8 +110,7 @@ namespace travel_experts_phase_2
                 {
                     Package = packageController.ConvertToPackageModel(selectedRow)
                 };
-
-                DialogResult result = UpdatePackageForm.ShowDialog();
+                    DialogResult result = UpdatePackageForm.ShowDialog();
 
                 if (result == DialogResult.OK)
                 {

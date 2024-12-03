@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -32,19 +31,22 @@ namespace travel_experts_phase_2.Models
         public virtual DbSet<Package> Packages { get; set; } = null!;
         public virtual DbSet<PackagesProductsSupplier> PackagesProductsSuppliers { get; set; } = null!;
         public virtual DbSet<Product> Products { get; set; } = null!;
+        public virtual DbSet<ProductsPackage> ProductsPackages { get; set; } = null!;
         public virtual DbSet<ProductsSupplier> ProductsSuppliers { get; set; } = null!;
         public virtual DbSet<Region> Regions { get; set; } = null!;
         public virtual DbSet<Reward> Rewards { get; set; } = null!;
         public virtual DbSet<Supplier> Suppliers { get; set; } = null!;
         public virtual DbSet<SupplierContact> SupplierContacts { get; set; } = null!;
         public virtual DbSet<TripType> TripTypes { get; set; } = null!;
+        public virtual DbSet<User> Users { get; set; } = null!;
+        public virtual DbSet<VwPackageProduct> VwPackageProducts { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["TravelExpertsConnection"].ConnectionString);
+                optionsBuilder.UseSqlServer("Data Source=localhost\\sqlexpress;Initial Catalog=TravelExperts;Integrated Security=True; TrustServerCertificate=true");
             }
         }
 
@@ -217,6 +219,23 @@ namespace travel_experts_phase_2.Models
                     .IsClustered(false);
             });
 
+            modelBuilder.Entity<ProductsPackage>(entity =>
+            {
+                entity.HasKey(e => e.ProductPackageId)
+                    .HasName("PK_ProductPackage");
+
+                entity.HasOne(d => d.Package)
+                    .WithMany(p => p.ProductsPackages)
+                    .HasForeignKey(d => d.PackageId)
+                    .HasConstraintName("FK_Packages");
+
+                entity.HasOne(d => d.Product)
+                    .WithMany(p => p.ProductsPackages)
+                    .HasForeignKey(d => d.ProductId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Products");
+            });
+
             modelBuilder.Entity<ProductsSupplier>(entity =>
             {
                 entity.HasKey(e => e.ProductSupplierId)
@@ -287,6 +306,29 @@ namespace travel_experts_phase_2.Models
                 entity.HasKey(e => e.TripTypeId)
                     .HasName("aaaaaTripTypes_PK")
                     .IsClustered(false);
+            });
+
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.HasOne(d => d.Admin)
+                    .WithMany(p => p.Users)
+                    .HasForeignKey(d => d.AdminId)
+                    .HasConstraintName("FK_Users_Admins");
+
+                entity.HasOne(d => d.Agent)
+                    .WithMany(p => p.Users)
+                    .HasForeignKey(d => d.AgentId)
+                    .HasConstraintName("FK_Users_Agents");
+
+                entity.HasOne(d => d.Customer)
+                    .WithMany(p => p.Users)
+                    .HasForeignKey(d => d.CustomerId)
+                    .HasConstraintName("FK_Users_Customers");
+            });
+
+            modelBuilder.Entity<VwPackageProduct>(entity =>
+            {
+                entity.ToView("vw_PackageProducts");
             });
 
             OnModelCreatingPartial(modelBuilder);

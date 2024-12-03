@@ -34,6 +34,9 @@
             emailTextBox = new TextBox();
             loginButton = new Button();
             clearButton = new Button();
+            txtPassword = new TextBox();
+            label4 = new Label();
+            showPasswordCheckBox = new CheckBox();
             SuspendLayout();
             // 
             // label1
@@ -71,7 +74,7 @@
             // 
             // emailTextBox
             // 
-            emailTextBox.Location = new Point(194, 177);
+            emailTextBox.Location = new Point(219, 176);
             emailTextBox.Name = "emailTextBox";
             emailTextBox.Size = new Size(506, 27);
             emailTextBox.TabIndex = 3;
@@ -81,7 +84,7 @@
             loginButton.BackColor = Color.Navy;
             loginButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             loginButton.ForeColor = Color.White;
-            loginButton.Location = new Point(214, 251);
+            loginButton.Location = new Point(219, 322);
             loginButton.Name = "loginButton";
             loginButton.Size = new Size(152, 42);
             loginButton.TabIndex = 4;
@@ -93,18 +96,50 @@
             // 
             clearButton.BackColor = SystemColors.AppWorkspace;
             clearButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            clearButton.Location = new Point(399, 251);
+            clearButton.Location = new Point(404, 322);
             clearButton.Name = "clearButton";
             clearButton.Size = new Size(131, 42);
             clearButton.TabIndex = 5;
             clearButton.Text = "Clear";
             clearButton.UseVisualStyleBackColor = false;
             // 
+            // txtPassword
+            // 
+            txtPassword.Location = new Point(219, 228);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(506, 27);
+            txtPassword.TabIndex = 7;
+            txtPassword.UseSystemPasswordChar = true;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(114, 227);
+            label4.Name = "label4";
+            label4.Size = new Size(102, 28);
+            label4.TabIndex = 6;
+            label4.Text = "Password:";
+            // 
+            // showPasswordCheckBox
+            // 
+            showPasswordCheckBox.AutoSize = true;
+            showPasswordCheckBox.Location = new Point(336, 276);
+            showPasswordCheckBox.Name = "showPasswordCheckBox";
+            showPasswordCheckBox.Size = new Size(132, 24);
+            showPasswordCheckBox.TabIndex = 8;
+            showPasswordCheckBox.Text = "Show Password";
+            showPasswordCheckBox.UseVisualStyleBackColor = true;
+            showPasswordCheckBox.CheckedChanged += showPasswordCheckBox_CheckedChanged;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(showPasswordCheckBox);
+            Controls.Add(txtPassword);
+            Controls.Add(label4);
             Controls.Add(clearButton);
             Controls.Add(loginButton);
             Controls.Add(emailTextBox);
@@ -113,6 +148,7 @@
             Controls.Add(label1);
             Name = "LoginForm";
             Text = "LoginForm";
+            Load += LoginForm_Load_1;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -125,5 +161,8 @@
         private TextBox emailTextBox;
         private Button loginButton;
         private Button clearButton;
+        private TextBox txtPassword;
+        private Label label4;
+        private CheckBox showPasswordCheckBox;
     }
 }
