@@ -32,6 +32,7 @@
             addbtn = new Button();
             editbtn = new Button();
             label1 = new Label();
+            backButton = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvProductSupplier).BeginInit();
             SuspendLayout();
             // 
@@ -77,11 +78,23 @@
             label1.TabIndex = 4;
             label1.Text = "Product Supplier Information";
             // 
+            // backButton
+            // 
+            backButton.BackColor = SystemColors.ActiveCaption;
+            backButton.Location = new Point(813, 442);
+            backButton.Name = "backButton";
+            backButton.Size = new Size(140, 41);
+            backButton.TabIndex = 21;
+            backButton.Text = "Back to Home";
+            backButton.UseVisualStyleBackColor = false;
+            backButton.Click += backButton_Click;
+            // 
             // ProductSupplierFrm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(982, 503);
+            Controls.Add(backButton);
             Controls.Add(label1);
             Controls.Add(editbtn);
             Controls.Add(addbtn);
@@ -101,5 +114,6 @@
         private Button editbtn;
         private Button deletebtn;
         private Label label1;
+        private Button backButton;
     }
 }

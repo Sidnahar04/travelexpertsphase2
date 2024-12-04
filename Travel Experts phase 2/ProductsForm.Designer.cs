@@ -36,6 +36,7 @@
             searchBox = new TextBox();
             label2 = new Label();
             addButton = new Button();
+            backButton = new Button();
             ((System.ComponentModel.ISupportInitialize)productsDataGridView).BeginInit();
             SuspendLayout();
             // 
@@ -124,11 +125,23 @@
             addButton.UseVisualStyleBackColor = false;
             addButton.Click += addButton_Click;
             // 
+            // backButton
+            // 
+            backButton.BackColor = SystemColors.ActiveCaption;
+            backButton.Location = new Point(805, 59);
+            backButton.Name = "backButton";
+            backButton.Size = new Size(140, 41);
+            backButton.TabIndex = 21;
+            backButton.Text = "Back to Home";
+            backButton.UseVisualStyleBackColor = false;
+            backButton.Click += backButton_Click;
+            // 
             // ProductsForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1113, 450);
+            Controls.Add(backButton);
             Controls.Add(addButton);
             Controls.Add(searchBox);
             Controls.Add(label2);
@@ -155,5 +168,6 @@
         private TextBox searchBox;
         private Label label2;
         private Button addButton;
+        private Button backButton;
     }
 }

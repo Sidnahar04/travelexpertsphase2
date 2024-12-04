@@ -40,7 +40,7 @@ namespace travel_experts_phase_2
             });
             dgvProductSupplier.Columns.Add(new DataGridViewTextBoxColumn
             {
-                Name ="ProdName",
+                Name = "ProdName",
                 DataPropertyName = "ProdName",
                 HeaderText = "Product Name",
                 Width = 250
@@ -70,7 +70,7 @@ namespace travel_experts_phase_2
 
         private void editbtn_Click(object sender, EventArgs e)
         {
-            if(dgvProductSupplier.SelectedRows.Count > 0)
+            if (dgvProductSupplier.SelectedRows.Count > 0)
             {
 
                 // Get the selected row
@@ -144,6 +144,11 @@ namespace travel_experts_phase_2
                 productSupplierController.AddProductSupplier(selectedProductSupplier);
                 displayAllProductSuppliers();
             }
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

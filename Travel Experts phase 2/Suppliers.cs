@@ -103,7 +103,7 @@ namespace travel_experts_phase_2
 
 
             }
-            else 
+            else
             {
                 MessageBox.Show("Please select a row to modify.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -217,7 +217,8 @@ namespace travel_experts_phase_2
 
         private void confirmBtn_Click(object sender, EventArgs e)
         {
-            if (SupplierValidation()) {
+            if (SupplierValidation())
+            {
 
                 SuppliersViewModel supplierViewModel = new SuppliersViewModel { SupplierId = int.Parse(selectedSupplierIdTextbox.Text), SupplierName = NameAddBox.Text };
 
@@ -278,9 +279,10 @@ namespace travel_experts_phase_2
 
             return true;
         }
-       
-            
 
-        
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

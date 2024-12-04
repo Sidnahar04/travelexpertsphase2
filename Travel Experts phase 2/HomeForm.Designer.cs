@@ -31,9 +31,11 @@
             agentButton = new Button();
             agenciesButton = new Button();
             packagesButton = new Button();
-            packagesSuppliersButton = new Button();
+            suppliersButton = new Button();
             productsButton = new Button();
             productSuppliersButton = new Button();
+            closeButton = new Button();
+            logoutButton = new Button();
             SuspendLayout();
             // 
             // agentButton
@@ -74,17 +76,17 @@
             packagesButton.UseVisualStyleBackColor = false;
             packagesButton.Click += packagesButton_Click;
             // 
-            // packagesSuppliersButton
+            // suppliersButton
             // 
-            packagesSuppliersButton.BackColor = SystemColors.ActiveCaption;
-            packagesSuppliersButton.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            packagesSuppliersButton.Location = new Point(109, 185);
-            packagesSuppliersButton.Name = "packagesSuppliersButton";
-            packagesSuppliersButton.Size = new Size(239, 64);
-            packagesSuppliersButton.TabIndex = 2;
-            packagesSuppliersButton.Text = "Packages Suppliers";
-            packagesSuppliersButton.UseVisualStyleBackColor = false;
-            packagesSuppliersButton.Click += button2_Click;
+            suppliersButton.BackColor = SystemColors.ActiveCaption;
+            suppliersButton.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            suppliersButton.Location = new Point(109, 185);
+            suppliersButton.Name = "suppliersButton";
+            suppliersButton.Size = new Size(239, 64);
+            suppliersButton.TabIndex = 2;
+            suppliersButton.Text = "Suppliers";
+            suppliersButton.UseVisualStyleBackColor = false;
+            suppliersButton.Click += button2_Click;
             // 
             // productsButton
             // 
@@ -110,15 +112,43 @@
             productSuppliersButton.UseVisualStyleBackColor = false;
             productSuppliersButton.Click += productSuppliersButton_Click;
             // 
+            // closeButton
+            // 
+            closeButton.BackColor = Color.Red;
+            closeButton.Font = new Font("Impact", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            closeButton.ForeColor = SystemColors.ControlLightLight;
+            closeButton.Location = new Point(703, 453);
+            closeButton.Name = "closeButton";
+            closeButton.Size = new Size(131, 44);
+            closeButton.TabIndex = 6;
+            closeButton.Text = "Close";
+            closeButton.UseVisualStyleBackColor = false;
+            closeButton.Click += closeButton_Click;
+            // 
+            // logoutButton
+            // 
+            logoutButton.BackColor = Color.Yellow;
+            logoutButton.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            logoutButton.ForeColor = SystemColors.ActiveCaptionText;
+            logoutButton.Location = new Point(703, 29);
+            logoutButton.Name = "logoutButton";
+            logoutButton.Size = new Size(131, 44);
+            logoutButton.TabIndex = 7;
+            logoutButton.Text = "Log out";
+            logoutButton.UseVisualStyleBackColor = false;
+            logoutButton.Click += logoutButton_Click;
+            // 
             // HomeForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(867, 549);
+            Controls.Add(logoutButton);
+            Controls.Add(closeButton);
             Controls.Add(productsButton);
             Controls.Add(productSuppliersButton);
             Controls.Add(packagesButton);
-            Controls.Add(packagesSuppliersButton);
+            Controls.Add(suppliersButton);
             Controls.Add(agenciesButton);
             Controls.Add(agentButton);
             Name = "HomeForm";
@@ -132,8 +162,10 @@
         private Button agentButton;
         private Button agenciesButton;
         private Button packagesButton;
-        private Button packagesSuppliersButton;
+        private Button suppliersButton;
         private Button productsButton;
         private Button productSuppliersButton;
+        private Button closeButton;
+        private Button logoutButton;
     }
 }

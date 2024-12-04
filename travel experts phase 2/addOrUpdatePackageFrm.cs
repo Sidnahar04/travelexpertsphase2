@@ -106,44 +106,45 @@ namespace travel_experts_phase_2
 
         private void packageNameTxt_TextChanged(object sender, EventArgs e)
         {
-
-
-        private void packageDescTxt_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
-        private void displayProducts()
-        {
-            PackageController packageController = new PackageController();
-            var products = packageController.GetAllProducts();
 
-            // Bind products to the ComboBox
-            productsCombo.DataSource = products;
-            productsCombo.DisplayMember = "ProdName"; // Display name for the ComboBox
-            productsCombo.ValueMember = "ProductId"; // Unique identifier for the ComboBox
-        }
-
-        private void productsCombo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (productsCombo.SelectedItem is Product selectedProduct && Package != null)
+            private void packageDescTxt_TextChanged(object sender, EventArgs e)
             {
-                //selectedProductPackage = selectedProduct;
-                Package.ProdName = selectedProduct.ProdName;
-                Package.ProdID = selectedProduct.ProductId;
+
             }
-        }
 
-        public void SetSelectedProduct(string prodName)
-        {
-            var products = (List<Product>)productsCombo.DataSource;
-            var selectedProduct = products.FirstOrDefault(p => p.ProdName == prodName);
-
-            if (selectedProduct != null)
+            private void displayProducts()
             {
-                productsCombo.SelectedValue = selectedProduct.ProductId;
-            }
-        }
+                PackageController packageController = new PackageController();
+                var products = packageController.GetAllProducts();
 
-    }
-}
+                // Bind products to the ComboBox
+                productsCombo.DataSource = products;
+                productsCombo.DisplayMember = "ProdName"; // Display name for the ComboBox
+                productsCombo.ValueMember = "ProductId"; // Unique identifier for the ComboBox
+            }
+
+            private void productsCombo_SelectedIndexChanged(object sender, EventArgs e)
+            {
+                if (productsCombo.SelectedItem is Product selectedProduct && Package != null)
+                {
+                    //selectedProductPackage = selectedProduct;
+                    Package.ProdName = selectedProduct.ProdName;
+                    Package.ProdID = selectedProduct.ProductId;
+                }
+            }
+
+            public void SetSelectedProduct(string prodName)
+            {
+                var products = (List<Product>)productsCombo.DataSource;
+                var selectedProduct = products.FirstOrDefault(p => p.ProdName == prodName);
+
+                if (selectedProduct != null)
+                {
+                    productsCombo.SelectedValue = selectedProduct.ProductId;
+                }
+            }
+
+        }
+    } 

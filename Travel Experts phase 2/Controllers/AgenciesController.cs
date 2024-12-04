@@ -26,7 +26,7 @@ namespace travel_experts_phase_2.Controllers
                     AgencyPhone = agencies.AgncyPostal,
                     AgencyFax = agencies.AgncyFax
                 }
-                ).ToList;
+                ).ToList();
 
                 return agencies;
             }

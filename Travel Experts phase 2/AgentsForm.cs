@@ -81,7 +81,7 @@ namespace travel_experts_phase_2
         {
             using (var context = new TravelExpertsContext())
             {
-                var agent = context.Agents.Where(a => a.AgtFirstName == txtFirstName.Text ).FirstOrDefault();
+                var agent = context.Agents.Where(a => a.AgtFirstName == txtFirstName.Text).FirstOrDefault();
                 if (agent != null)
                 {
                     context.Agents.Remove(agent);
@@ -95,6 +95,11 @@ namespace travel_experts_phase_2
         private void AgentsForm_Load(object sender, EventArgs e)
         {
             PopulateComboBox();
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
