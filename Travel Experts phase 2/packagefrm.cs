@@ -110,7 +110,7 @@ namespace travel_experts_phase_2
                 {
                     Package = packageController.ConvertToPackageModel(selectedRow)
                 };
-                    DialogResult result = UpdatePackageForm.ShowDialog();
+                DialogResult result = UpdatePackageForm.ShowDialog();
 
                 if (result == DialogResult.OK)
                 {
@@ -166,6 +166,11 @@ namespace travel_experts_phase_2
                 // Display the filtered packages in the DataGridView
                 dgvPackages.DataSource = filteredPackages;
             }
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

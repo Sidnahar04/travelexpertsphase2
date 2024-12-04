@@ -58,6 +58,7 @@
             lblRoles = new Label();
             cmbAgentId = new ComboBox();
             lblAgentId = new Label();
+            backButton = new Button();
             ((System.ComponentModel.ISupportInitialize)gdvAgentsTable).BeginInit();
             ((System.ComponentModel.ISupportInitialize)agentViewModelBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)agentBindingSource).BeginInit();
@@ -298,11 +299,23 @@
             lblAgentId.TabIndex = 19;
             lblAgentId.Text = "Account #";
             // 
+            // backButton
+            // 
+            backButton.BackColor = SystemColors.ActiveCaption;
+            backButton.Location = new Point(687, 474);
+            backButton.Name = "backButton";
+            backButton.Size = new Size(140, 41);
+            backButton.TabIndex = 21;
+            backButton.Text = "Back to Home";
+            backButton.UseVisualStyleBackColor = false;
+            backButton.Click += backButton_Click;
+            // 
             // AgentsForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(866, 501);
+            ClientSize = new Size(881, 527);
+            Controls.Add(backButton);
             Controls.Add(lblAgentId);
             Controls.Add(cmbAgentId);
             Controls.Add(lblRoles);
@@ -365,5 +378,6 @@
         private Label lblRoles;
         private ComboBox cmbAgentId;
         private Label lblAgentId;
+        private Button backButton;
     }
 }

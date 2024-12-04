@@ -51,6 +51,7 @@
             lblAgencyFax = new Label();
             txtAgencyId = new TextBox();
             lblAgencyId = new Label();
+            backButton = new Button();
             ((System.ComponentModel.ISupportInitialize)grdAgencies).BeginInit();
             ((System.ComponentModel.ISupportInitialize)agencyBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)agencyBindingSource1).BeginInit();
@@ -229,11 +230,23 @@
             lblAgencyId.TabIndex = 21;
             lblAgencyId.Text = "Agency Id";
             // 
+            // backButton
+            // 
+            backButton.BackColor = SystemColors.ActiveCaption;
+            backButton.Location = new Point(638, 427);
+            backButton.Name = "backButton";
+            backButton.Size = new Size(140, 41);
+            backButton.TabIndex = 22;
+            backButton.Text = "Back to Home";
+            backButton.UseVisualStyleBackColor = false;
+            backButton.Click += backButton_Click;
+            // 
             // AgenciesForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(811, 497);
+            Controls.Add(backButton);
             Controls.Add(lblAgencyId);
             Controls.Add(txtAgencyId);
             Controls.Add(lblAgencyFax);
@@ -296,5 +309,6 @@
         private DataGridViewTextBoxColumn agentsDataGridViewTextBoxColumn;
         private TextBox txtAgencyId;
         private Label lblAgencyId;
+        private Button backButton;
     }
 }

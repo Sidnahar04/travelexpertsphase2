@@ -42,7 +42,7 @@ namespace travel_experts_phase_2
                     Product = productController.ConvertToProductViewModel(selectedRow),
                     IsViewProduct = true
                 };
-                
+
                 DialogResult result = viewProductForm.ShowDialog();
                 if (result == DialogResult.OK)
                 {
@@ -130,6 +130,11 @@ namespace travel_experts_phase_2
                 productController.AddProduct(addProductForm.Product);
                 displayAllProducts();
             }
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

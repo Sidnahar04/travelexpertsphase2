@@ -36,6 +36,7 @@
             viewBtn = new Button();
             label1 = new Label();
             searchBox = new TextBox();
+            backButton = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvPackages).BeginInit();
             SuspendLayout();
             // 
@@ -50,7 +51,6 @@
             dgvPackages.TabIndex = 0;
             dgvPackages.CellContentClick += dgvPackages_CellContentClick;
             // 
-
             // addBtn
             // 
             addBtn.Location = new Point(35, 324);
@@ -119,12 +119,23 @@
             searchBox.TabIndex = 7;
             searchBox.TextChanged += searchBox_TextChanged;
             // 
-
+            // backButton
+            // 
+            backButton.BackColor = SystemColors.ActiveCaption;
+            backButton.Location = new Point(35, 17);
+            backButton.Name = "backButton";
+            backButton.Size = new Size(140, 41);
+            backButton.TabIndex = 21;
+            backButton.Text = "Back to Home";
+            backButton.UseVisualStyleBackColor = false;
+            backButton.Click += backButton_Click;
+            // 
             // packagefrm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(882, 423);
+            Controls.Add(backButton);
             Controls.Add(searchBox);
             Controls.Add(label1);
             Controls.Add(viewBtn);
@@ -134,9 +145,7 @@
             Controls.Add(addBtn);
             Controls.Add(dgvPackages);
             Name = "packagefrm";
-
             Text = "Package";
-
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dgvPackages).EndInit();
             ResumeLayout(false);
@@ -153,5 +162,6 @@
         private Button viewBtn;
         private Label label1;
         private TextBox searchBox;
+        private Button backButton;
     }
 }

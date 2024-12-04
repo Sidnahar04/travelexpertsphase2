@@ -79,5 +79,10 @@ namespace travel_experts_phase_2
                 }
             }
         }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
