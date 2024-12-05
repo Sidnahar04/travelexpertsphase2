@@ -59,11 +59,12 @@
             // 
             // grdAgencies
             // 
-            grdAgencies.AutoGenerateColumns = false;
+            grdAgencies.AllowUserToAddRows = false;
+            grdAgencies.AllowUserToDeleteRows = false;
             grdAgencies.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            grdAgencies.DataSource = agencyBindingSource;
             grdAgencies.Location = new Point(35, 22);
             grdAgencies.Name = "grdAgencies";
+            grdAgencies.ReadOnly = true;
             grdAgencies.RowHeadersWidth = 51;
             grdAgencies.RowTemplate.Height = 29;
             grdAgencies.Size = new Size(728, 207);
@@ -269,6 +270,7 @@
             Controls.Add(grdAgencies);
             Name = "AgenciesForm";
             Text = "Agencies";
+            Load += AgenciesForm_Load;
             ((System.ComponentModel.ISupportInitialize)grdAgencies).EndInit();
             ((System.ComponentModel.ISupportInitialize)agencyBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)agencyBindingSource1).EndInit();

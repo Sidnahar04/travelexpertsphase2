@@ -18,6 +18,7 @@ namespace travel_experts_phase_2
         public AgenciesForm()
         {
             InitializeComponent();
+            PopulateGridView();
         }
 
         private void PopulateGridView()
@@ -83,6 +84,11 @@ namespace travel_experts_phase_2
         private void backButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void AgenciesForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
