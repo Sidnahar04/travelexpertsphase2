@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.ComponentModel.DataAnnotations;
 using travel_experts_phase_2.Controllers;
 using travel_experts_phase_2.Models;
 using travel_experts_phase_2.ViewModels;
@@ -32,7 +33,7 @@ namespace travel_experts_phase_2
         {
             Agency newAgency = new Agency
             {
-                //AgencyId = txtAgencyId.Text,
+                AgencyId = int.Parse(txtAgencyId.Text),
                 AgncyAddress = txtAgencyAddress.Text,
                 AgncyCity = txtAgencyCity.Text,
                 AgncyProv = txtAgencyProvince.Text,
@@ -41,11 +42,47 @@ namespace travel_experts_phase_2
                 AgncyPostal = txtAgencyPostal.Text,
                 AgncyFax = txtAgencyFax.Text
             };
-            Agency agency = newAgency;
-            using (var context = new TravelExpertsContext())
+            if (txtAgencyId == null)
             {
-                context.Agencies.Add(agency);
-                context.SaveChanges();
+                MessageBox.Show("Please enter an Agency Id number");
+            }
+            if (txtAgencyAddress == null)
+            {
+                MessageBox.Show("Please enter an Agencies Address");
+            }
+            if (txtAgencyCity == null)
+            {
+                MessageBox.Show("Please enter an Agencies City");
+            }
+            if (txtAgencyProvince == null)
+            {
+                MessageBox.Show("Please enter an Agencies Province");
+            }
+            if (txtAgencyCountry == null)
+            {
+                MessageBox.Show("Please enter an Agencies Country");
+            }
+            if (txtAgencyPhone == null)
+            {
+                MessageBox.Show("Please enter an Agency Phone Number");
+            }
+            if (txtAgencyPostal == null)
+            {
+                MessageBox.Show("Please enter an Agency Postal Number");
+            }
+            if (txtAgencyFax == null)
+            {
+                MessageBox.Show("Please enter an Agency Fax Number");
+            }
+            else
+            {
+                //Agency agency = newAgency;
+                using (var context = new TravelExpertsContext())
+                {
+                    context.Agencies.Add(newAgency);
+                    context.SaveChanges();
+                }
+
             }
         }
 
@@ -56,13 +93,34 @@ namespace travel_experts_phase_2
                 var agencies = context.Agencies.FirstOrDefault();
                 if (agencies != null)
                 {
-                    agencies.AgncyAddress = txtAgencyAddress.Text;
-                    agencies.AgncyCity = txtAgencyCity.Text;
-                    agencies.AgncyProv = txtAgencyProvince.Text;
-                    agencies.AgncyCountry = txtAgencyCountry.Text;
-                    agencies.AgncyPhone = txtAgencyPhone.Text;
-                    agencies.AgncyPostal = txtAgencyPostal.Text;
-                    agencies.AgncyFax = txtAgencyFax.Text;
+                    if (txtAgencyAddress != null)
+                    {
+                        agencies.AgncyAddress = txtAgencyAddress.Text;
+                    }
+                    if (txtAgencyCity != null)
+                    {
+                        agencies.AgncyCity = txtAgencyCity.Text;
+                    }
+                    if (txtAgencyProvince != null)
+                    {
+                        agencies.AgncyProv = txtAgencyProvince.Text;
+                    }
+                    if (txtAgencyCountry != null)
+                    {
+                        agencies.AgncyCountry = txtAgencyCountry.Text;
+                    }
+                    if (txtAgencyPhone != null)
+                    {
+                        agencies.AgncyPhone = txtAgencyPhone.Text;
+                    }
+                    if (txtAgencyPostal != null)
+                    {
+                        agencies.AgncyPostal = txtAgencyPostal.Text;
+                    }
+                    if (txtAgencyFax != null)
+                    {
+                        agencies.AgncyFax = txtAgencyFax.Text;
+                    }
                     context.SaveChanges();
                 }
             }
