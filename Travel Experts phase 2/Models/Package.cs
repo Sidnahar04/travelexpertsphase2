@@ -29,6 +29,10 @@ namespace travel_experts_phase_2.Models
         public decimal PkgBasePrice { get; set; }
         [Column(TypeName = "money")]
         public decimal? PkgAgencyCommission { get; set; }
+        [Column("imagePath")]
+        [StringLength(255)]
+        [Unicode(false)]
+        public string? ImagePath { get; set; }
 
         [InverseProperty("Package")]
         public virtual ICollection<Booking> Bookings { get; set; }

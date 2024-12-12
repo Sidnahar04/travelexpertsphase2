@@ -7,6 +7,8 @@ using Microsoft.EntityFrameworkCore;
 namespace travel_experts_phase_2.Models
 {
     [Table("products_packages")]
+    [Index("PackageId", Name = "IX_products_packages_PackageId")]
+    [Index("ProductId", Name = "IX_products_packages_ProductId")]
     public partial class ProductsPackage
     {
         [Key]

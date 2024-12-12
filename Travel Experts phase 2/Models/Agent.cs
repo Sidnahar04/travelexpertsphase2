@@ -6,12 +6,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace travel_experts_phase_2.Models
 {
+    [Index("AgencyId", Name = "IX_Agents_AgencyId")]
     public partial class Agent
     {
         public Agent()
         {
             Customers = new HashSet<Customer>();
-            Users = new HashSet<User>();
+            DesktopAccounts = new HashSet<DesktopAccount>();
         }
 
         [Key]
@@ -36,6 +37,6 @@ namespace travel_experts_phase_2.Models
         [InverseProperty("Agent")]
         public virtual ICollection<Customer> Customers { get; set; }
         [InverseProperty("Agent")]
-        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<DesktopAccount> DesktopAccounts { get; set; }
     }
 }

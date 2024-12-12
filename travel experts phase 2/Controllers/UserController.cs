@@ -14,7 +14,7 @@ namespace travel_experts_phase_2.Controllers
         {
             using (TravelExpertsContext db = new TravelExpertsContext())
             {
-                var users = db.Users.Select(user => new UserViewModel
+                var users = db.DesktopAccounts.Select(user => new UserViewModel
                 {
                     Id = user.UserId,
                     Email = user.Email,
@@ -33,7 +33,7 @@ namespace travel_experts_phase_2.Controllers
         {
             using (TravelExpertsContext db = new TravelExpertsContext())
             {
-                var user = new User
+                var user = new DesktopAccount
                 {
                     Email = userViewModel.Email,
                     Password = HashPassword(userViewModel.Password),
@@ -42,7 +42,7 @@ namespace travel_experts_phase_2.Controllers
                     AgentId = userViewModel.AgentId,
                     CustomerId = userViewModel.CustomerId
                 };
-                db.Users.Add(user);
+                db.DesktopAccounts.Add(user);
                 db.SaveChanges();
             }
         }
@@ -52,7 +52,7 @@ namespace travel_experts_phase_2.Controllers
         {
             using (TravelExpertsContext db = new TravelExpertsContext())
             {
-                var user = db.Users.FirstOrDefault(u => u.Email == email);
+                var user = db.DesktopAccounts.FirstOrDefault(u => u.Email == email);
                 if (user != null && VerifyPassword(password, user.Password))
                 {
                     return new UserViewModel

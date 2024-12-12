@@ -20,12 +20,19 @@ namespace travel_experts_phase_2.Models
         public virtual DbSet<Affiliation> Affiliations { get; set; } = null!;
         public virtual DbSet<Agency> Agencies { get; set; } = null!;
         public virtual DbSet<Agent> Agents { get; set; } = null!;
+        public virtual DbSet<AspNetRole> AspNetRoles { get; set; } = null!;
+        public virtual DbSet<AspNetRoleClaim> AspNetRoleClaims { get; set; } = null!;
+        public virtual DbSet<AspNetUser> AspNetUsers { get; set; } = null!;
+        public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; } = null!;
+        public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; } = null!;
+        public virtual DbSet<AspNetUserToken> AspNetUserTokens { get; set; } = null!;
         public virtual DbSet<Booking> Bookings { get; set; } = null!;
         public virtual DbSet<BookingDetail> BookingDetails { get; set; } = null!;
         public virtual DbSet<Class> Classes { get; set; } = null!;
         public virtual DbSet<CreditCard> CreditCards { get; set; } = null!;
         public virtual DbSet<Customer> Customers { get; set; } = null!;
         public virtual DbSet<CustomersReward> CustomersRewards { get; set; } = null!;
+        public virtual DbSet<DesktopAccount> DesktopAccounts { get; set; } = null!;
         public virtual DbSet<Employee> Employees { get; set; } = null!;
         public virtual DbSet<Fee> Fees { get; set; } = null!;
         public virtual DbSet<Package> Packages { get; set; } = null!;
@@ -38,7 +45,6 @@ namespace travel_experts_phase_2.Models
         public virtual DbSet<Supplier> Suppliers { get; set; } = null!;
         public virtual DbSet<SupplierContact> SupplierContacts { get; set; } = null!;
         public virtual DbSet<TripType> TripTypes { get; set; } = null!;
-        public virtual DbSet<User> Users { get; set; } = null!;
         public virtual DbSet<VwPackageProduct> VwPackageProducts { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -67,13 +73,58 @@ namespace travel_experts_phase_2.Models
                     .HasConstraintName("FK_Agents_Agencies");
             });
 
+            modelBuilder.Entity<AspNetRole>(entity =>
+            {
+                entity.HasIndex(e => e.NormalizedName, "RoleNameIndex")
+                    .IsUnique()
+                    .HasFilter("([NormalizedName] IS NOT NULL)");
+            });
+
+            modelBuilder.Entity<AspNetUser>(entity =>
+            {
+                entity.HasIndex(e => e.NormalizedUserName, "UserNameIndex")
+                    .IsUnique()
+                    .HasFilter("([NormalizedUserName] IS NOT NULL)");
+
+                entity.HasMany(d => d.Roles)
+                    .WithMany(p => p.Users)
+                    .UsingEntity<Dictionary<string, object>>(
+                        "AspNetUserRole",
+                        l => l.HasOne<AspNetRole>().WithMany().HasForeignKey("RoleId"),
+                        r => r.HasOne<AspNetUser>().WithMany().HasForeignKey("UserId"),
+                        j =>
+                        {
+                            j.HasKey("UserId", "RoleId");
+
+                            j.ToTable("AspNetUserRoles");
+
+                            j.HasIndex(new[] { "RoleId" }, "IX_AspNetUserRoles_RoleId");
+                        });
+            });
+
+            modelBuilder.Entity<AspNetUserLogin>(entity =>
+            {
+                entity.HasKey(e => new { e.LoginProvider, e.ProviderKey });
+            });
+
+            modelBuilder.Entity<AspNetUserToken>(entity =>
+            {
+                entity.HasKey(e => new { e.UserId, e.LoginProvider, e.Name });
+            });
+
             modelBuilder.Entity<Booking>(entity =>
             {
                 entity.HasKey(e => e.BookingId)
                     .HasName("aaaaaBookings_PK")
                     .IsClustered(false);
 
+                entity.Property(e => e.Balance).HasDefaultValueSql("((0.00))");
+
                 entity.Property(e => e.PackageId).HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.PaymentStatus).HasDefaultValueSql("('Pending')");
+
+                entity.Property(e => e.TotalPaid).HasDefaultValueSql("((0.00))");
 
                 entity.HasOne(d => d.Customer)
                     .WithMany(p => p.Bookings)
@@ -178,6 +229,27 @@ namespace travel_experts_phase_2.Models
                     .HasConstraintName("Customers_Rewards_FK01");
             });
 
+            modelBuilder.Entity<DesktopAccount>(entity =>
+            {
+                entity.HasKey(e => e.UserId)
+                    .HasName("PK__DesktopA__1788CC4C2178516F");
+
+                entity.HasOne(d => d.Admin)
+                    .WithMany(p => p.DesktopAccounts)
+                    .HasForeignKey(d => d.AdminId)
+                    .HasConstraintName("FK_Users_Admins");
+
+                entity.HasOne(d => d.Agent)
+                    .WithMany(p => p.DesktopAccounts)
+                    .HasForeignKey(d => d.AgentId)
+                    .HasConstraintName("FK_Users_Agents");
+
+                entity.HasOne(d => d.Customer)
+                    .WithMany(p => p.DesktopAccounts)
+                    .HasForeignKey(d => d.CustomerId)
+                    .HasConstraintName("FK_Users_Customers");
+            });
+
             modelBuilder.Entity<Fee>(entity =>
             {
                 entity.HasKey(e => e.FeeId)
@@ -191,7 +263,7 @@ namespace travel_experts_phase_2.Models
                     .HasName("aaaaaPackages_PK")
                     .IsClustered(false);
 
-                entity.Property(e => e.PkgAgencyCommission).HasDefaultValueSql("((0))");
+                entity.Property(e => e.PkgAgencyCommission).HasDefaultValueSql("((0.0))");
             });
 
             modelBuilder.Entity<PackagesProductsSupplier>(entity =>
@@ -267,8 +339,6 @@ namespace travel_experts_phase_2.Models
                 entity.HasKey(e => e.RewardId)
                     .HasName("aaaaaRewards_PK")
                     .IsClustered(false);
-
-                entity.Property(e => e.RewardId).ValueGeneratedNever();
             });
 
             modelBuilder.Entity<Supplier>(entity =>
@@ -276,8 +346,6 @@ namespace travel_experts_phase_2.Models
                 entity.HasKey(e => e.SupplierId)
                     .HasName("aaaaaSuppliers_PK")
                     .IsClustered(false);
-
-                entity.Property(e => e.SupplierId).ValueGeneratedNever();
             });
 
             modelBuilder.Entity<SupplierContact>(entity =>
@@ -306,24 +374,6 @@ namespace travel_experts_phase_2.Models
                 entity.HasKey(e => e.TripTypeId)
                     .HasName("aaaaaTripTypes_PK")
                     .IsClustered(false);
-            });
-
-            modelBuilder.Entity<User>(entity =>
-            {
-                entity.HasOne(d => d.Admin)
-                    .WithMany(p => p.Users)
-                    .HasForeignKey(d => d.AdminId)
-                    .HasConstraintName("FK_Users_Admins");
-
-                entity.HasOne(d => d.Agent)
-                    .WithMany(p => p.Users)
-                    .HasForeignKey(d => d.AgentId)
-                    .HasConstraintName("FK_Users_Agents");
-
-                entity.HasOne(d => d.Customer)
-                    .WithMany(p => p.Users)
-                    .HasForeignKey(d => d.CustomerId)
-                    .HasConstraintName("FK_Users_Customers");
             });
 
             modelBuilder.Entity<VwPackageProduct>(entity =>

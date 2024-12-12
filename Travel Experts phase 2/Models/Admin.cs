@@ -11,7 +11,7 @@ namespace travel_experts_phase_2.Models
     {
         public Admin()
         {
-            Users = new HashSet<User>();
+            DesktopAccounts = new HashSet<DesktopAccount>();
         }
 
         [Key]
@@ -29,6 +29,6 @@ namespace travel_experts_phase_2.Models
         public string Role { get; set; } = null!;
 
         [InverseProperty("Admin")]
-        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<DesktopAccount> DesktopAccounts { get; set; }
     }
 }

@@ -29,6 +29,13 @@ namespace travel_experts_phase_2.Models
         [StringLength(1)]
         public string? TripTypeId { get; set; }
         public int? PackageId { get; set; }
+        [Column("paymentStatus")]
+        [StringLength(50)]
+        public string PaymentStatus { get; set; } = null!;
+        [Column("balance", TypeName = "decimal(10, 2)")]
+        public decimal Balance { get; set; }
+        [Column("totalPaid", TypeName = "decimal(10, 2)")]
+        public decimal TotalPaid { get; set; }
 
         [ForeignKey("CustomerId")]
         [InverseProperty("Bookings")]
