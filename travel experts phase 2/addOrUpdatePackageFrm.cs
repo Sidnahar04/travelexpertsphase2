@@ -105,7 +105,8 @@ namespace travel_experts_phase_2
 
 
         private void packageNameTxt_TextChanged(object sender, EventArgs e)
-        {
+        { 
+        }
 
 
         private void packageDescTxt_TextChanged(object sender, EventArgs e)
