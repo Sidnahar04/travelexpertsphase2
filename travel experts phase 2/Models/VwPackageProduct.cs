@@ -24,8 +24,5 @@ namespace travel_experts_phase_2.Models
         public decimal? PkgAgencyCommission { get; set; }
         [StringLength(50)]
         public string? ProdName { get; set; }
-        [Column("ProductPackageID")]
-        public int? ProductPackageId { get; set; }
-        public int? ProductId { get; set; }
     }
 }

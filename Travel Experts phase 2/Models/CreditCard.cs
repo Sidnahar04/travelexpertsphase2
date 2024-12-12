@@ -20,6 +20,8 @@ namespace travel_experts_phase_2.Models
         [Column("CCExpiry", TypeName = "datetime")]
         public DateTime Ccexpiry { get; set; }
         public int CustomerId { get; set; }
+        [Column(TypeName = "decimal(18, 2)")]
+        public decimal Balance { get; set; }
 
         [ForeignKey("CustomerId")]
         [InverseProperty("CreditCards")]
