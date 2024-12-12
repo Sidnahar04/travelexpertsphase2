@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using travel_experts_phase_2.Models;
 using travel_experts_phase_2.ViewModels;
 
@@ -58,9 +59,9 @@ namespace travel_experts_phase_2.Controllers
 
         public void deleteSupplier(Supplier supplierToBeDeleted)
         {
-
             if (supplierToBeDeleted != null)
             {
+                context.Entry(supplierToBeDeleted).State = EntityState.Detached;
                 context.Suppliers.Remove(supplierToBeDeleted);
                 context.SaveChanges();
 
