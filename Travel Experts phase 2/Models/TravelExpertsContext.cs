@@ -20,12 +20,6 @@ namespace travel_experts_phase_2.Models
         public virtual DbSet<Affiliation> Affiliations { get; set; } = null!;
         public virtual DbSet<Agency> Agencies { get; set; } = null!;
         public virtual DbSet<Agent> Agents { get; set; } = null!;
-        public virtual DbSet<AspNetRole> AspNetRoles { get; set; } = null!;
-        public virtual DbSet<AspNetRoleClaim> AspNetRoleClaims { get; set; } = null!;
-        public virtual DbSet<AspNetUser> AspNetUsers { get; set; } = null!;
-        public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; } = null!;
-        public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; } = null!;
-        public virtual DbSet<AspNetUserToken> AspNetUserTokens { get; set; } = null!;
         public virtual DbSet<Booking> Bookings { get; set; } = null!;
         public virtual DbSet<BookingDetail> BookingDetails { get; set; } = null!;
         public virtual DbSet<Class> Classes { get; set; } = null!;
@@ -52,7 +46,7 @@ namespace travel_experts_phase_2.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=localhost\\sqlexpress;Initial Catalog=TravelExperts;Integrated Security=True; TrustServerCertificate=true");
+                optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=TravelExperts;Integrated Security=True; TrustServerCertificate=true");
             }
         }
 
@@ -71,45 +65,6 @@ namespace travel_experts_phase_2.Models
                     .WithMany(p => p.Agents)
                     .HasForeignKey(d => d.AgencyId)
                     .HasConstraintName("FK_Agents_Agencies");
-            });
-
-            modelBuilder.Entity<AspNetRole>(entity =>
-            {
-                entity.HasIndex(e => e.NormalizedName, "RoleNameIndex")
-                    .IsUnique()
-                    .HasFilter("([NormalizedName] IS NOT NULL)");
-            });
-
-            modelBuilder.Entity<AspNetUser>(entity =>
-            {
-                entity.HasIndex(e => e.NormalizedUserName, "UserNameIndex")
-                    .IsUnique()
-                    .HasFilter("([NormalizedUserName] IS NOT NULL)");
-
-                entity.HasMany(d => d.Roles)
-                    .WithMany(p => p.Users)
-                    .UsingEntity<Dictionary<string, object>>(
-                        "AspNetUserRole",
-                        l => l.HasOne<AspNetRole>().WithMany().HasForeignKey("RoleId"),
-                        r => r.HasOne<AspNetUser>().WithMany().HasForeignKey("UserId"),
-                        j =>
-                        {
-                            j.HasKey("UserId", "RoleId");
-
-                            j.ToTable("AspNetUserRoles");
-
-                            j.HasIndex(new[] { "RoleId" }, "IX_AspNetUserRoles_RoleId");
-                        });
-            });
-
-            modelBuilder.Entity<AspNetUserLogin>(entity =>
-            {
-                entity.HasKey(e => new { e.LoginProvider, e.ProviderKey });
-            });
-
-            modelBuilder.Entity<AspNetUserToken>(entity =>
-            {
-                entity.HasKey(e => new { e.UserId, e.LoginProvider, e.Name });
             });
 
             modelBuilder.Entity<Booking>(entity =>
@@ -232,7 +187,7 @@ namespace travel_experts_phase_2.Models
             modelBuilder.Entity<DesktopAccount>(entity =>
             {
                 entity.HasKey(e => e.UserId)
-                    .HasName("PK__DesktopA__1788CC4C2178516F");
+                    .HasName("PK__DesktopA__1788CC4C19718CDE");
 
                 entity.HasOne(d => d.Admin)
                     .WithMany(p => p.DesktopAccounts)

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace travel_experts_phase_2.Models
 {
-    [Index("Email", Name = "UQ__DesktopA__A9D1053494F1FFBC", IsUnique = true)]
+    [Index("Email", Name = "UQ__DesktopA__A9D10534E8F22383", IsUnique = true)]
     public partial class DesktopAccount
     {
         [Key]

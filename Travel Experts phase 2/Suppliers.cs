@@ -37,8 +37,6 @@ namespace travel_experts_phase_2
             cancelBtn.Visible = false;
             NameAddBox.Visible = false;
             NameAddBox.Text = string.Empty;
-            selectedSupplierIdTextbox.Visible = false;
-            selectedSupplierIdlabel.Visible = false;
 
         }
 
@@ -58,14 +56,8 @@ namespace travel_experts_phase_2
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            selectedSupplierIdTextbox.ReadOnly = false;
             confirmBtn.Visible = false;
             confrimAddButton.Visible = true;
-
-            selectedSupplierIdTextbox.ReadOnly = false;
-
-            selectedSupplierIdTextbox.Visible = true;
-            selectedSupplierIdlabel.Visible = true;
             AddLbl.Visible = true;
             UpdateLbl.Visible = false;
             SupNameLbl.Visible = true;
@@ -74,16 +66,10 @@ namespace travel_experts_phase_2
             cancelBtn.Visible = true;
             NameAddBox.Visible = true;
             NameAddBox.Text = string.Empty;
-            selectedSupplierIdTextbox.Text = string.Empty;
-
         }
 
         private void UpdateBtn_Click(object sender, EventArgs e)
         {
-
-            selectedSupplierIdTextbox.ReadOnly = true;
-            selectedSupplierIdTextbox.Visible = true;
-            selectedSupplierIdlabel.Visible = true;
             confirmBtn.Visible = true;
             confrimAddButton.Visible = false;
             Supplier = new SuppliersViewModel();
@@ -96,12 +82,7 @@ namespace travel_experts_phase_2
                 NameAddBox.Visible = true;
                 SupNameLbl.Visible = true;
                 NameAddBox.Text = Supplier.SupplierName;
-                selectedSupplierIdTextbox.Text = Supplier.SupplierId.ToString();
                 confirmBtn.Visible = true;
-
-
-
-
             }
             else
             {
@@ -169,16 +150,12 @@ namespace travel_experts_phase_2
             String viewDisp;
             if (SupplierView.SelectedRows.Count > 0)
             {
-                selectedSupplierIdTextbox.ReadOnly = true;
                 DataGridViewRow selectedRow = SupplierView.SelectedRows[0];
 
                 SuppliersViewModel selectedRowViewModel = supplierController.ConvertToSuppliersViewModel(selectedRow);
                 NameAddBox.Visible = true;
                 SupNameLbl.Visible = true;
                 NameAddBox.Text = selectedRowViewModel.SupplierName;
-                selectedSupplierIdTextbox.Text = selectedRowViewModel.SupplierId.ToString();
-                selectedSupplierIdTextbox.Visible = true;
-                selectedSupplierIdlabel.Visible = true;
                 confrimAddButton.Visible = false;
                 confirmBtn.Visible = false;
                 cancelBtn.Visible = false;
@@ -203,8 +180,6 @@ namespace travel_experts_phase_2
             cancelBtn.Visible = false;
             NameAddBox.Visible = false;
             NameAddBox.Text = string.Empty;
-            selectedSupplierIdlabel.Visible = false;
-            selectedSupplierIdTextbox.Visible = false;
             SupNameLbl.Visible = false;
             NameAddBox.Visible = false;
             confrimAddButton.Visible = false;
@@ -230,8 +205,6 @@ namespace travel_experts_phase_2
                 cancelBtn.Visible = false;
                 NameAddBox.Visible = false;
                 NameAddBox.Text = string.Empty;
-                selectedSupplierIdlabel.Visible = false;
-                selectedSupplierIdTextbox.Visible = false;
                 SupNameLbl.Visible = false;
                 NameAddBox.Visible = false;
                 displaySuppliers();
@@ -243,18 +216,15 @@ namespace travel_experts_phase_2
 
         private void confrimAddButton_Click(object sender, EventArgs e)
         {
-            if (SupplierValidation() && SupplierIDValidation())
+            if (SupplierValidation())
             {
                 SuppliersViewModel supplierViewModel = new SuppliersViewModel
                 {
-                    SupplierId = int.Parse(selectedSupplierIdTextbox.Text),
                     SupplierName = NameAddBox.Text
                 };
 
                 supplierController.AddSupplier(supplierViewModel);
                 displaySuppliers();
-                selectedSupplierIdlabel.Visible = false;
-                selectedSupplierIdTextbox.Visible = false;
                 SupNameLbl.Visible = false;
                 NameAddBox.Visible = false;
                 confrimAddButton.Visible = false;
@@ -270,12 +240,6 @@ namespace travel_experts_phase_2
         public bool SupplierValidation()
         {
             if (!Validator.IsNotEmpty(NameAddBox.Text, "Supplier Name", NameAddBox)) return false;
-
-            return true;
-        }
-        public bool SupplierIDValidation()
-        {
-            if (!Validator.IsPositiveInt(selectedSupplierIdTextbox.Text, "Supplier ID", selectedSupplierIdTextbox)) return false;
 
             return true;
         }

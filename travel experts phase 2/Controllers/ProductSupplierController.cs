@@ -22,7 +22,7 @@ namespace travel_experts_phase_2.Controllers
                     SupplierId = ps.Supplier.SupplierId,
                     SupName = ps.Supplier.SupName,
                     ProdName = ps.Product.ProdName
-                }).ToList();
+                }).OrderBy(ps=>ps.ProductSupplierId).ToList();
 
             return productSuppliers;
         }

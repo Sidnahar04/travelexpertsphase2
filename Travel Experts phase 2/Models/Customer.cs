@@ -11,7 +11,6 @@ namespace travel_experts_phase_2.Models
     {
         public Customer()
         {
-            AspNetUsers = new HashSet<AspNetUser>();
             Bookings = new HashSet<Booking>();
             CreditCards = new HashSet<CreditCard>();
             CustomersRewards = new HashSet<CustomersReward>();
@@ -41,12 +40,11 @@ namespace travel_experts_phase_2.Models
         [StringLength(50)]
         public string CustEmail { get; set; } = null!;
         public int? AgentId { get; set; }
+        public string? ProfileImagePath { get; set; }
 
         [ForeignKey("AgentId")]
         [InverseProperty("Customers")]
         public virtual Agent? Agent { get; set; }
-        [InverseProperty("Customer")]
-        public virtual ICollection<AspNetUser> AspNetUsers { get; set; }
         [InverseProperty("Customer")]
         public virtual ICollection<Booking> Bookings { get; set; }
         [InverseProperty("Customer")]

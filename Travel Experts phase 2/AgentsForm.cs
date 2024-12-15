@@ -36,23 +36,30 @@ namespace travel_experts_phase_2
         //using textbox info to create new agent 
         private void btnAddAgent_Click(object sender, EventArgs e)
         {
-            Agent newAgent = new Agent
+            if(txtFirstName.Text != "")
             {
-                AgtFirstName = txtFirstName.Text,
-                AgtMiddleInitial = txtInitial.Text,
-                AgtLastName = txtLastName.Text,
-                AgtEmail = txtEmail.Text,
-                AgtBusPhone = txtPhone.Text,
-                AgtPosition = txtRoles.Text
-            };
-            Agent agent = newAgent;
-            using (var context = new TravelExpertsContext())
-            {
-                context.Agents.Add(agent);
-                context.SaveChanges();
+                Agent newAgent = new Agent
+                {
+                    AgtFirstName = txtFirstName.Text,
+                    AgtMiddleInitial = txtInitial.Text,
+                    AgtLastName = txtLastName.Text,
+                    AgtEmail = txtEmail.Text,
+                    AgtBusPhone = txtPhone.Text,
+                    AgtPosition = txtRoles.Text
+                };
+                Agent agent = newAgent;
+                using (var context = new TravelExpertsContext())
+                {
+                    context.Agents.Add(agent);
+                    context.SaveChanges();
+                }
+                cmbAgentId.Items.Clear();
+                PopulateComboBox();
             }
-            cmbAgentId.Items.Clear();
-            PopulateComboBox();
+            else
+            {
+                MessageBox.Show("Please Add Data.", "Data Not Added Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         //using textbox data to update agent info
@@ -100,6 +107,19 @@ namespace travel_experts_phase_2
         private void backButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void gdvAgentsTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (gdvAgentsTable.SelectedRows.Count > 0)
+            {
+                // Get the selected row
+                DataGridViewRow selectedRow = gdvAgentsTable.SelectedRows[0];
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to edit.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

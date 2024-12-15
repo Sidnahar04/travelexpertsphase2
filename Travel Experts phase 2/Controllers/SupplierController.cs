@@ -45,7 +45,7 @@ namespace travel_experts_phase_2.Controllers
         {
             var supplier = new Supplier
             {
-                SupplierId = supplierViewModel.SupplierId,
+                //SupplierId = supplierViewModel.SupplierId,
 
                 SupName = supplierViewModel.SupplierName
 

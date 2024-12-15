@@ -78,6 +78,7 @@
             gdvAgentsTable.RowTemplate.Height = 29;
             gdvAgentsTable.Size = new Size(804, 194);
             gdvAgentsTable.TabIndex = 0;
+            gdvAgentsTable.CellContentClick += gdvAgentsTable_CellContentClick;
             // 
             // firstNameDataGridViewTextBoxColumn
             // 

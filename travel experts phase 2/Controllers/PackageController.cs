@@ -25,7 +25,7 @@ namespace travel_experts_phase_2.Controllers
                     ProdName = package.ProdName,
                 }).OrderBy(p => p.PackageId).ToList();
 
-                return packages;  
+                return packages;
             }
         }
 
@@ -37,7 +37,7 @@ namespace travel_experts_phase_2.Controllers
                 PkgStartDate = packageViewModel.PkgStartDate,
                 PkgEndDate = packageViewModel.PkgEndDate,
                 PkgDesc = packageViewModel.PkgDesc,
-                //PackageId=packageViewModel.PackageID,
+                //PackageId = packageViewModel.PackageId,
                 PkgBasePrice = (decimal)packageViewModel.PkgBasePrice,
                 PkgAgencyCommission = (decimal)packageViewModel.PkgAgencyCommission,
             };
@@ -79,23 +79,22 @@ namespace travel_experts_phase_2.Controllers
 
         public void UpdatePackage(PackageViewModel packageViewModel)
         {
-            var package = new Package
-            {
-                PkgName = packageViewModel.PkgName,
-                PkgStartDate = packageViewModel.PkgStartDate,
-                PkgEndDate = packageViewModel.PkgEndDate,
-                PkgDesc = packageViewModel.PkgDesc,
-                PackageId = packageViewModel.PackageId,
-                PkgBasePrice = (decimal)packageViewModel.PkgBasePrice,
-                PkgAgencyCommission = (decimal)packageViewModel.PkgAgencyCommission
-            };
-            context.Packages.Update(package);
+            var package = context.Packages.FirstOrDefault(p => p.PackageId == packageViewModel.PackageId);
+            package.PkgName = packageViewModel.PkgName;
+            package.PkgStartDate = packageViewModel.PkgStartDate;
+            package.PkgEndDate = packageViewModel.PkgEndDate;
+            package.PkgDesc = packageViewModel.PkgDesc;
+            package.PkgBasePrice = (decimal)packageViewModel.PkgBasePrice;
+            package.PkgAgencyCommission = (decimal)packageViewModel.PkgAgencyCommission;
+
+            //context.Packages.Update(package);
             context.SaveChanges();
 
             var detailsOfProductPackage = context.ProductsPackages.FirstOrDefault(pp =>
-            pp.PackageId == packageViewModel.PackageId);
+         pp.PackageId == packageViewModel.PackageId);
+
             detailsOfProductPackage.ProductId = packageViewModel.ProdID;
-            context.ProductsPackages.Update(detailsOfProductPackage);
+
             context.SaveChanges();
         }
 

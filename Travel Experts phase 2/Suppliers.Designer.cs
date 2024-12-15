@@ -42,8 +42,6 @@
             NameAddBox = new TextBox();
             confirmBtn = new Button();
             cancelBtn = new Button();
-            selectedSupplierIdTextbox = new TextBox();
-            selectedSupplierIdlabel = new Label();
             confrimAddButton = new Button();
             backButton = new Button();
             ((System.ComponentModel.ISupportInitialize)SupplierView).BeginInit();
@@ -154,7 +152,7 @@
             // SupNameLbl
             // 
             SupNameLbl.AutoSize = true;
-            SupNameLbl.Location = new Point(195, 635);
+            SupNameLbl.Location = new Point(154, 604);
             SupNameLbl.Name = "SupNameLbl";
             SupNameLbl.Size = new Size(111, 20);
             SupNameLbl.TabIndex = 13;
@@ -162,7 +160,7 @@
             // 
             // NameAddBox
             // 
-            NameAddBox.Location = new Point(303, 631);
+            NameAddBox.Location = new Point(303, 601);
             NameAddBox.Margin = new Padding(3, 4, 3, 4);
             NameAddBox.Name = "NameAddBox";
             NameAddBox.Size = new Size(532, 27);
@@ -189,23 +187,6 @@
             cancelBtn.Text = "Cancel";
             cancelBtn.UseVisualStyleBackColor = true;
             cancelBtn.Click += cancelBtn_Click;
-            // 
-            // selectedSupplierIdTextbox
-            // 
-            selectedSupplierIdTextbox.Location = new Point(303, 579);
-            selectedSupplierIdTextbox.Margin = new Padding(3, 4, 3, 4);
-            selectedSupplierIdTextbox.Name = "selectedSupplierIdTextbox";
-            selectedSupplierIdTextbox.Size = new Size(532, 27);
-            selectedSupplierIdTextbox.TabIndex = 18;
-            // 
-            // selectedSupplierIdlabel
-            // 
-            selectedSupplierIdlabel.AutoSize = true;
-            selectedSupplierIdlabel.Location = new Point(195, 583);
-            selectedSupplierIdlabel.Name = "selectedSupplierIdlabel";
-            selectedSupplierIdlabel.Size = new Size(86, 20);
-            selectedSupplierIdlabel.TabIndex = 17;
-            selectedSupplierIdlabel.Text = "Supplier ID:";
             // 
             // confrimAddButton
             // 
@@ -237,8 +218,6 @@
             ClientSize = new Size(914, 776);
             Controls.Add(backButton);
             Controls.Add(confrimAddButton);
-            Controls.Add(selectedSupplierIdTextbox);
-            Controls.Add(selectedSupplierIdlabel);
             Controls.Add(cancelBtn);
             Controls.Add(confirmBtn);
             Controls.Add(NameAddBox);
@@ -277,8 +256,6 @@
         private TextBox NameAddBox;
         private Button confirmBtn;
         private Button cancelBtn;
-        private TextBox selectedSupplierIdTextbox;
-        private Label selectedSupplierIdlabel;
         private Button confrimAddButton;
         private Button backButton;
     }
