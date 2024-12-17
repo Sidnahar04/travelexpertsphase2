@@ -194,8 +194,11 @@ namespace travel_experts_phase_2
         {
             if (SupplierValidation())
             {
+                DataGridViewRow selectedRow = SupplierView.SelectedRows[0];
 
-                SuppliersViewModel supplierViewModel = new SuppliersViewModel { SupplierId = int.Parse(selectedSupplierIdTextbox.Text), SupplierName = NameAddBox.Text };
+                Supplier = supplierController.ConvertToSuppliersViewModel(selectedRow);
+
+                SuppliersViewModel supplierViewModel = new SuppliersViewModel { SupplierId = Supplier.SupplierId, SupplierName = NameAddBox.Text };
 
                 supplierController.UpdateSupplier(supplierViewModel);
 
